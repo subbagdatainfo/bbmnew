@@ -604,7 +604,8 @@
 			$this->email->to($forgot['email']);
 			$this->email->set_newline("\r\n");
 			$this->email->subject("Password Recovery ");
-			$this->email->message("Salam ".$nama."<br>Berikut adalah Password Anda : ".$password);
+			$this->email->message("Salam ".$nama.
+				"Berikut adalah Password Anda : ".$password);
 			//$this->email->send();
 			//$this->email->send();
 			if ($this->email->send()) {

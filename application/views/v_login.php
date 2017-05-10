@@ -8,10 +8,11 @@
                         <!-- <h3 class="panel-title">Silakan Log in</h3> -->
                     </div>
                     <div class="panel-body">
-                        <?php if($this->session->flashdata('message')){
-                            ?> <span class="label label-danger"> <?php echo $this->session->flashdata('message'); ?></span><?php 
-                        }
-                        ?>
+                        <?php if($this->session->flashdata('status')=="success"){ ?>
+                <p><h3><span class="label label-success"><?php echo $this->session->flashdata('message'); ?></span></h3></p>
+                <?php }elseif ($this->session->flashdata('status')=='danger') {?>
+                    <p><h3><span class="label label-danger"><?php echo $this->session->flashdata('message'); ?></span></h3></p>
+                <?php } ?>
                         <form role="form" name="login" action ="<?=site_url('C_Peserta/auth'); ?>" method="post">
                             <fieldset>
                                 <div class="form-group">
