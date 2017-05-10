@@ -51,5 +51,11 @@ class Page extends CI_Controller {
 		$this->load->view('v_login');
 		$this->load->view('template/footer');
 	}
+
+	function forgotpasssword(){
+		$this->load->view('template/header');
+		$this->load->view('forgot');
+		$this->load->view('template/footer');
+	}
 }
 	

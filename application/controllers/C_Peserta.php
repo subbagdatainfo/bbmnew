@@ -165,6 +165,14 @@
 	            $fk['row']=$fkkey->num_rows() ;
 	            $kontenarray['fk']=$fk;
 
+
+	            $videokey = $this->M_Peserta->getvideo($nisn_siswa);
+	            foreach ($videokey->result_array() as $keyvideo ) {
+	            	$video[$keyvideo['sequence_video']]['path_video'] = $keyvideo['path_video'];
+	            }
+	            $video['row']=$videokey->num_rows() ;
+	            $kontenarray['video']=$video;
+
 	            //$kontenarray=$piagamrow;
                 // foreach ($datakonten->result_array() as $keykonten ) {
                 //     if ($keykonten['jenis']=='profpict') {
@@ -416,8 +424,7 @@
 			$this->email->to($alamat_email);
 			$this->email->set_newline("\r\n");
 			$this->email->subject("Selamat Anda Telah Berhasil Mendaftar");
-			$this->email->message("Selamat Anda telah berhasil mendaftar untuk jadi calon peserta BBM 2017. Silakan login dengan menggunakan NISN dan Password yang telah Anda daftarkan untuk melengkapi persyaratan selanjut nya.
-				Setelah Anda login Anda di harapkan untuk mengupload :
+			$this->email->message("Selamat Anda telah berhasil mendaftar untuk jadi calon peserta BBM 2017. Silakan login dengan menggunakan NISN dan Password yang telah Anda daftarkan untuk melengkapi persyaratan selanjut nya.Setelah Anda login Anda di harapkan untuk mengupload :
 				1. Surat Keterangan Sehat
 				2. Surat Persetujuan Dari Orang Tua
 				3. Surat Rekomendasi dari Kepala Sekolah
@@ -551,6 +558,61 @@
 	        	redirect(base_url().'C_Peserta/detail','refresh');
 			}
 			
+		}
+
+		function addvideo(){
+			$konten['nisn'] = $this->session->userdata('nisn');
+			//$name = "fk-".$this->input->post('fkrow');
+			$konten['path_video']=$this->input->post('link');
+			$konten['sequence_video'] = $this->input->post('videorow');
+			// echo $konten['path_piagam']."<br>";
+			// echo $konten['sequence_piagam'];
+			//$konten['upload_time']=date("d-m-Y H:i:s");
+				if (NULL == $this->input->post('update')) {
+					$result=$this->M_Peserta->uploadvideo($konten);
+	            
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Tautan berhasil ditambahkan');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
+
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
+				} else{
+					$result=$this->M_Peserta->updatevideo($konten);
+					$message1=$this->session->set_flashdata('message','Tautan berhasil ditambahkan');
+					$message2=$this->session->set_flashdata('status', 'success');
+					redirect(base_url().'C_Peserta/detail','refresh');
+				}	
+			
+		}
+
+		function forgotpassword(){
+			$forgot['nisnsiswa'] = $this->input->post('nisn');
+			$forgot['email'] = $this->input->post('email');
+			$result=$this->M_Peserta->forgot($forgot);
+			foreach ($result->result_array() as $key ) {
+				$password= $key['PASSWORD'];
+				$nama=$key['NAMA'];
+			}
+
+			$config['mailtype'] = 'html';
+			$this->email->from('bbm', 'Panitia BBM 2017');
+			$this->email->to($forgot['email']);
+			$this->email->set_newline("\r\n");
+			$this->email->subject("Password Recovery ");
+			$this->email->message("Salam ".$nama."<br>Berikut adalah Password Anda : ".$password);
+			//$this->email->send();
+			//$this->email->send();
+			if ($this->email->send()) {
+				echo "sukses";
+			} else {
+				echo "fail";
+			}
+
 		}
 
 		

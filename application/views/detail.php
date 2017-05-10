@@ -22,6 +22,8 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo HTTP_VENDOR_PATH;?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -225,47 +227,61 @@
                                                              <a href="#addpiagam" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Tambah</a><?php
                                                 }?>
                                             </div>
-                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="panel panel-default text-center">
-                                            <!-- panel untuk foto karya -->
-                                            <div class="panel-heading">
-                                                <strong>Foto Karya</strong>
-                                            </div>
-                                            <div class="panel-body">
-                                                <ul class="list-inline">
-                                                <?php if ($fk['row'] !== 0){
+                                    <!-- panel untuk foto karya -->
+                                     <div class="panel-heading">
+                                        <strong>Foto Karya</strong>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-inline">
+                                        <?php if ($fk['row'] !== 0){
                                                     
-                                                    $icount=$fk['row'];
-                                                    for ($i=0; $i < $icount ; $i++) { 
-                                                        ?>
-                                                                <li><img height="160" width="160" class="img-responsive" src="<?php echo base_url().$fk[$i]['path_foto'];?>"></li>
-                                                          <?php
-                                                    }?></ul>
-                                                        <!-- <img class="img-responsive" src="<?php echo base_url().$piagam;?>"> --><br>
-                                                        <a href="#updatefk" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Update</a>
-                                                        <a href="#addfk" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Tambah</a><?php
+                                            $icount=$fk['row'];
+                                            for ($i=0; $i < $icount ; $i++) { 
+                                            ?>
+                                                <li><img height="160" width="160" class="img-responsive" src="<?php echo base_url().$fk[$i]['path_foto'];?>"></li>
+                                                <?php
+                                                }?></ul>
+                                                <!-- <img class="img-responsive" src="<?php echo base_url().$piagam;?>"> --><br>
+                                                <a href="#updatefk" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Update</a>
+                                                 <a href="#addfk" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Tambah</a><?php
                                                         }else {
                                                             ?> <span class="label label-default">Belum Tersedia</span><br><br>
                                                              <a href="#addfk" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Tambah</a><?php
                                                 }?>
                                             </div>
-                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="panel panel-default text-center">
-                                    <!-- panel untuk video karya -->
-                                    <div class="panel-heading">
-                                        <strong>Video Karya</strong>
-                                    </div>
-                                    <div class="panel-body">
-                                        <?php if ($video != NULL){
-                                                ?><a class="img-responsive center-block" href="<?php echo base_url().$video;?>">Daftar Riwayat Hidup</a><?php
-                                                }else {
-                                                    ?> <span class="label label-default">Belum Tersedia</span><?php
-                                        }?>
-                                    </div>
+                                            <!-- panel untuk sertifikat atau penghargaan -->
+                                            <div class="panel-heading">
+                                                <strong>Video Karya</strong>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ul class="list-inline">
+                                                <?php if ($video['row'] !== 0){
+                                                    
+                                                    $icount=$video['row'];
+                                                    for ($i=0; $i < $icount ; $i++) { 
+                                                        ?>
+                                                                <li>
+                                                                    
+                                                                    <a class="youtube " href="<?php echo $video[$i]['path_video'];?>">video <?php echo $i+1;?></a>
+                                                                </li>
+                                                          <?php
+                                                    }?></ul>
+                                                        <br>
+                                                        <a href="#updatevideo" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Update</a>
+                                                        <a href="#addvideo" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Tambah</a><?php
+                                                        }else {
+                                                            ?> <span class="label label-default">Belum Tersedia</span><br><br>
+                                                             <a href="#addvideo" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Tambah</a><?php
+                                                }?>
+                                            </div>
                                 </div>
                             </div>
                         </div>
@@ -750,7 +766,7 @@
                             <input type="file" name="userfile">
                         </div>
                         <div class="form-group">
-                            <input type="hidden" name="jenis" value="sks">
+                            <input type="hidden" name="jenis" value="essai">
                         </div>
                         <button type="submit" name ="submit" value="submit" class="btn btn-xl">Upload</button>
                     </form>
@@ -764,7 +780,7 @@
         </div>
     </div>
 
-    <!-- modal update surat Keterangan Sehat -->
+    <!-- modal update essai siswa -->
     <div class="modal fade" id="updateessai" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
@@ -784,7 +800,93 @@
                             <input type="file" name="userfile">
                         </div>
                         <div class="form-group">
-                            <input type="hidden" name="jenis" value="sks">
+                            <input type="hidden" name="jenis" value="essai">
+                            <input type="hidden" name="update" value="update">
+                        </div>
+                        <button type="submit" name ="submit" value="submit" class="btn btn-xl">Upload</button>
+                    </form>
+                  </div> 
+                </div>
+                <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+
+
+    <!-- modal tambah video -->
+    <div class="modal fade" id="addvideo" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Video</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row-md-8">
+                    <p>Silakan masukan tautan video Youtube Anda</p>
+                  </div>
+                  <div class="row-md-4">
+                    <form name="update" id="updateform"  action ="<?=site_url('C_Peserta/addvideo'); ?>" method="post">
+                        <div class="form-group">
+                            <label>Tautan Youtube</label>
+                            <input type="text" name="link" required>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="hidden" class ="form-control"  id="videorow" name="videorow" value="<?php echo $video['row']?>"  >
+                        </div>
+                        <button type="submit" name ="submit" value="submit" class="btn btn-xl">Submit</button>
+                    </form>
+                  </div> 
+                </div>
+                <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+
+
+    <!-- modal update video -->
+    <div class="modal fade" id="updatevideo" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Foto Karya</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row-md-8">
+                    <p>Silakan masukan tautan video Youtube Anda yang baru</p>
+                  </div>
+                  <div class="row-md-4">
+                    <form name="update" id="updateform"  action ="<?=site_url('C_Peserta/addvideo'); ?>" method="post">
+                        <div class="form-group text-center">
+                            <ul class="list-inline">
+                                <?php
+                                    $icount=$video['row'];
+                                    for ($i=0; $i < $icount ; $i++) { 
+                                        ?>
+                                        <li><input  type="radio" id="videorow" name="videorow" value="<?php echo $i;?>" >   <a class="youtube " href="<?php echo $video[$i]['path_video'];?>">video <?php echo $i+1;?></a></li>
+                                        
+                                        <?php
+                                    }
+                                ?>
+                            </ul>
+                                
+                        </div>  
+                        <div class="form-group">
+                            <label>Tautan Youtube</label>
+                            <input type="text" name="link" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="jenis" value="video">
                             <input type="hidden" name="update" value="update">
                         </div>
                         <button type="submit" name ="submit" value="submit" class="btn btn-xl">Upload</button>
@@ -809,6 +911,14 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo HTTP_JS_PATH; ?>sb-admin-2.js"></script>
+    <script src="<?php echo HTTP_JS_PATH; ?>bootstrap.youtubepopup.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".youtube").YouTubeModal({autoplay:0, width:640, height:480});
+        });
+    </script>
+
+    
 
 </body>
 

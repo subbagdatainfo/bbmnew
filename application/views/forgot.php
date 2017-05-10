@@ -12,21 +12,21 @@
                             ?> <span class="label label-danger"> <?php echo $this->session->flashdata('message'); ?></span><?php 
                         }
                         ?>
-                        <form role="form" name="login" action ="<?=site_url('C_Peserta/auth'); ?>" method="post">
+                        <form role="form" name="login" action ="<?=site_url('C_Peserta/forgotpassword'); ?>" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="NISN" name="nisn" type="text" autofocus>
+                                    <input class="form-control" placeholder="NISN" name="nisn" type="text" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Email" name="email" type="email"  reuired>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <!-- <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->
-                                <button type="submit" name ="submit" value="submit" class="btn btn-lg btn-success btn-block">Masuk</button>
+                                <button type="submit" name ="submit" value="submit" class="btn btn-lg btn-success btn-block">Kirim</button>
                             </fieldset>
                         </form>
                         
-                        <a style="text-decoration: underline;" href="<?php echo base_url().'Page/forgotpasssword';?>"> Lupa Password</a>
+                        
                         <div class="clear"></div>
                         
                     </div>

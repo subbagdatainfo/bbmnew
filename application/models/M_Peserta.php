@@ -67,6 +67,10 @@
 			return $piagam;
 		}
 
+		public function getvideo($nisn_siswa){
+			$video = $this->db->query("SELECT * from video where NISN= '$nisn_siswa' ");
+			return $video;
+		}
 
 		public function uploadkonten($konten){
 			$inputkonten=$this->db->insert('konten', $konten);
@@ -98,8 +102,39 @@
 			
 		}
 
+		public function uploadvideo($konten){
+			$inputkonten=$this->db->insert('video', $konten);
+			if ($inputkonten) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+			
+		}
+
+		public function updatevideo($konten){
+			$update=$this->db->update('video', $konten);
+			if ($update) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+			
+		}
+
 		public function directory(){
 			$dir=$this->db->query("SELECT distinct username from peserta group by email");
 			return $dir;
+		}
+
+		public function forgot($forgot){
+			$nisn = $forgot['nisnsiswa'];
+			$email = $forgot['email'];
+			$result = $this->db->query("SELECT PASSWORD,NAMA FROM siswa WHERE NISN = '$nisn' AND EMAIl = '$email' ");
+			if($result){
+				return $result;
+			}else {
+				return FALSE;
+			}
 		}
 	}
