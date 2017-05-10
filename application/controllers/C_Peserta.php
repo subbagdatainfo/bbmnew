@@ -608,9 +608,13 @@
 			//$this->email->send();
 			//$this->email->send();
 			if ($this->email->send()) {
-				echo "sukses";
+				$message1=$this->session->set_flashdata('message','Pasword Anda telah dikirimakan ke email Anda, silakan cek email Anda');
+				$message2=$this->session->set_flashdata('status', 'success');
+				redirect(base_url().'Page/login','refresh');
 			} else {
-				echo "fail";
+				$message1=$this->session->set_flashdata('message','Data yang dimasukan tidak sesuai');
+				$message2=$this->session->set_flashdata('status', 'danger');
+				redirect(base_url().'Page/forgot','refresh');
 			}
 
 		}
