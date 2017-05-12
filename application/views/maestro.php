@@ -268,7 +268,7 @@
                   </div>
                    <div class="row-md-8">
                         <ul class="list-inline">
-                            <!-- <video width="100%" height="auto" controls><source src="<?php echo HTTP_MAESTRO_PATH;?>joserizalfirdaus/vid.mp4" type="video/mp4"></video> -->
+                            <video width="100%" height="auto" controls><source src="<?php echo HTTP_MAESTRO_PATH;?>joserizalfirdaus/vid.mp4" type="video/mp4"></video>
                             <li><img src="<?php echo HTTP_MAESTRO_PATH;?>joserizalfirdaus/1.jpg" class = "img-responsive" width="100%" height="auto"></li>
                         </ul>
                    </div> 

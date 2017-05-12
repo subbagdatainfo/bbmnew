@@ -308,7 +308,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -342,7 +342,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -378,7 +378,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload surat persetujuan orang tua Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload surat persetujuan orang tua Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -412,7 +412,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -448,7 +448,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload surat keterangan sehat Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload surat keterangan sehat Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -482,7 +482,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload surat keterangan sehat Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload surat keterangan sehat Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -517,7 +517,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload sertifikat atau piagam penghargaan Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload sertifikat atau piagam penghargaan Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addpiagam'); ?>" method="post">
@@ -553,7 +553,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan pilih gambar mana yang akan diupdate dan upload sertifikat atau piagam penghargaan Anda yang baru. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan pilih gambar mana yang akan diupdate dan upload sertifikat atau piagam penghargaan Anda yang baru. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addpiagam'); ?>" method="post">
@@ -603,7 +603,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload foto karya Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload foto karya Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addfk'); ?>" method="post">
@@ -639,7 +639,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan pilih gambar mana yang akan diupdate dan upload foto karya Anda yang baru. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan pilih gambar mana yang akan diupdate dan upload foto karya Anda yang baru. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addfk'); ?>" method="post">
@@ -688,7 +688,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload gambar profile Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload gambar profile Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -722,7 +722,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload gambar profile Anda. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload gambar profile Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -757,7 +757,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload Essai Anda mengenai pengalaman Anda berkesenian. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload Essai Anda mengenai pengalaman Anda berkesenian. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
@@ -791,7 +791,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="row-md-8">
-                    <p>Silakan upload Essai Anda mengenai pengalaman Anda berkesenian. file upload dapat berupa file PDF atau image (.jpg)</p>
+                    <p>Silakan upload Essai Anda mengenai pengalaman Anda berkesenian. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
                     <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
