@@ -26,7 +26,7 @@
                         <li><a href="#sunaryo" class="portfolio-link btn btn-xl" data-toggle="modal"><img class="img-responsive" height="160" width="160" src="<?php echo HTTP_IMAGES_PATH?>SUNARYO.jpg"></a></li>
                         <li><a href="#timbul" class="portfolio-link btn btn-xl" data-toggle="modal"><img class="img-responsive" height="160" width="160" src="<?php echo HTTP_IMAGES_PATH?>TIMBUL.jpg"></a></li>
                         <li><a href="#titiekpuspa" class="portfolio-link btn btn-xl" data-toggle="modal"><img class="img-responsive" height="160" width="160" src="<?php echo HTTP_IMAGES_PATH?>TITIEKPUSPA.jpg"></a></li>
-                        <li><a href="#zakarya" class="portfolio-link btn btn-xl" data-toggle="modal"><img class="img-responsive" height="160" width="160" src="<?php echo HTTP_IMAGES_PATH?>ZAKARYA.jpg"></a></li>
+                        <li><a href="#zakarya" class="portfolio-link btn btn-xl" data-toggle="modal"><img class="img-responsive" height="160" width="160" src="<?php echo HTTP_IMAGES_PATH?>zakarya.jpg"></a></li>
                     </ul>
                 </div>
             </div>
