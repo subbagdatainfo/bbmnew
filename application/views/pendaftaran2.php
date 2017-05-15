@@ -51,6 +51,7 @@
                                 <div class ="form-group"  >
                                     <input type ="text" class ="form-control" placeholder="NISN" id="nisn" name="nisn" required data-validation-required-message="silakan masukan NISN Anda">
                                     <div style="text-align:left; color:red; font-size: 0.875em;">*Silakan kunjungi http://nisn.data.kemdikbud.go.id untuk memeriksa NISN Anda</div>
+                                    <div style="text-align:left; color:red; font-size: 0.875em;">*Note : pendaftaran hanya bisa menggunakan 1 nisn dan 1 alamat email. Harap diingat nisn, alamat email dan password yang digunakan.</div>
                                     <p class ="help-block text-danger"></p>
                                 </div>
                                <div class ="form-group">
@@ -141,11 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <input type="checkbox" name ="agree" value="agree">Dengan ini Saya menyatakan bahwa data yang saya masukan adalah benar adanya.
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>

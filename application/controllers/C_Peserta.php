@@ -26,7 +26,7 @@
 			$e = $this->db->error(); // Gets the last error that has occured
 			$num = $e['code'];
 			if ($num==1062) {
-				$message1=$this->session->set_flashdata('message','NISN Sudah Terdaftar');
+				$message1=$this->session->set_flashdata('message','NISN atau email sudah terdaftar');
 				$message2=$this->session->set_flashdata('status', 'danger');
 			} elseif ($result) {
 				$message1=$this->session->set_flashdata('message','Pendaftaran Anda Berhasil');
@@ -374,7 +374,7 @@
 			$e = $this->db->error(); // Gets the last error that has occured
 			$num = $e['code'];
 			if ($num==1062) {
-				$message1=$this->session->set_flashdata('message','NISN Sudah Terdaftar');
+				$message1=$this->session->set_flashdata('message','NISN atau email Sudah Terdaftar');
 				$message2=$this->session->set_flashdata('status', 'danger');
 			} elseif ($result) {
 				$message1=$this->session->set_flashdata('message','Pendaftaran Anda Berhasil');
@@ -594,10 +594,10 @@
 			$forgot['nisnsiswa'] = $this->input->post('nisn');
 			$forgot['email'] = $this->input->post('email');
 			$result=$this->M_Peserta->forgot($forgot);
-			if ($result !== NULL) {
+			if ($result->num_rows() !== 0) {
 				foreach ($result->result_array() as $key ) {
-					$password= $key['PASSWORD'];
-					$nama=$key['NAMA'];
+					echo $password= $key['PASSWORD'];
+					echo $nama=$key['NAMA'];
 				}
 
 				$config['mailtype'] = 'html';
@@ -610,20 +610,21 @@
 				//$this->email->send();
 				//$this->email->send();
 				if ($this->email->send()) {
-					$message1=$this->session->set_flashdata('message','Pasword Anda telah dikirimakan ke email Anda, silakan cek email Anda');
+					$message1=$this->session->set_flashdata('message','Password telah dikirimkan ke email Anda');
 					$message2=$this->session->set_flashdata('status', 'success');
 					redirect(base_url().'Page/login','refresh');
 				} else {
-					$message1=$this->session->set_flashdata('message','Data yang dimasukan tidak sesuai');
+					$message1=$this->session->set_flashdata('message','email gagal dikirim, silakan coba kembali');
 					$message2=$this->session->set_flashdata('status', 'danger');
-					redirect(base_url().'Page/forgot','refresh');
+					redirect(base_url().'Page/forgotpasssword','refresh');
 				}
 
-				
+
 			} else {
+				//echo "tes";
 				$message1=$this->session->set_flashdata('message','Data yang dimasukan tidak sesuai');
 					$message2=$this->session->set_flashdata('status', 'danger');
-					redirect(base_url().'Page/forgot','refresh');
+				redirect(base_url().'Page/forgotpasssword','refresh');
 			}
 			
 			

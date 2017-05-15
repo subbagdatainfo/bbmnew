@@ -18,7 +18,7 @@
                                     <input class="form-control" placeholder="NISN" name="nisn" type="text" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Email" name="email" type="email"  reuired>
+                                    <input class="form-control" placeholder="Email" name="email" type="email"  required>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <!-- <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->
@@ -46,4 +46,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo HTTP_JS_PATH; ?>sb-admin-2.js"></script>
+
+
 
