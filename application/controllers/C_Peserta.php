@@ -610,7 +610,7 @@
 				//$this->email->send();
 				//$this->email->send();
 				if ($this->email->send()) {
-					$message1=$this->session->set_flashdata('message','Password telah dikirimkan ke email Anda');
+					$message1=$this->session->set_flashdata('message','Password telah dikirimkan ke email anda');
 					$message2=$this->session->set_flashdata('status', 'success');
 					redirect(base_url().'Page/login','refresh');
 				} else {
