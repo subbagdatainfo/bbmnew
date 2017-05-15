@@ -593,8 +593,8 @@
 		function forgotpassword(){
 			$forgot['nisnsiswa'] = $this->input->post('nisn');
 			$forgot['email'] = $this->input->post('email');
-			if ($forgot['nisnsiswa'] !== NULL and $forget['email'] !== NULL) {
-				$result=$this->M_Peserta->forgot($forgot);
+			$result=$this->M_Peserta->forgot($forgot);
+			if ($result !== NULL) {
 				foreach ($result->result_array() as $key ) {
 					$password= $key['PASSWORD'];
 					$nama=$key['NAMA'];
@@ -619,11 +619,11 @@
 					redirect(base_url().'Page/forgot','refresh');
 				}
 
-
+				
 			} else {
-				$message1=$this->session->set_flashdata('message','Semua field harus di isi');
-				$message2=$this->session->set_flashdata('status', 'danger');
-				redirect(base_url().'Page/forgotpasssword','refresh');
+				$message1=$this->session->set_flashdata('message','Data yang dimasukan tidak sesuai');
+					$message2=$this->session->set_flashdata('status', 'danger');
+					redirect(base_url().'Page/forgot','refresh');
 			}
 			
 			
