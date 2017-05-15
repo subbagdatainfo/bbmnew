@@ -593,30 +593,40 @@
 		function forgotpassword(){
 			$forgot['nisnsiswa'] = $this->input->post('nisn');
 			$forgot['email'] = $this->input->post('email');
-			$result=$this->M_Peserta->forgot($forgot);
-			foreach ($result->result_array() as $key ) {
-				$password= $key['PASSWORD'];
-				$nama=$key['NAMA'];
-			}
+			if ($forgot['nisnsiswa'] !== NULL and $forget['email'] !== NULL) {
+				$result=$this->M_Peserta->forgot($forgot);
+				foreach ($result->result_array() as $key ) {
+					$password= $key['PASSWORD'];
+					$nama=$key['NAMA'];
+				}
 
-			$config['mailtype'] = 'html';
-			$this->email->from('bbm', 'Panitia BBM 2017');
-			$this->email->to($forgot['email']);
-			$this->email->set_newline("\r\n");
-			$this->email->subject("Password Recovery ");
-			$this->email->message("Salam ".$nama.
-				"Berikut adalah Password Anda : ".$password);
-			//$this->email->send();
-			//$this->email->send();
-			if ($this->email->send()) {
-				$message1=$this->session->set_flashdata('message','Pasword Anda telah dikirimakan ke email Anda, silakan cek email Anda');
-				$message2=$this->session->set_flashdata('status', 'success');
-				redirect(base_url().'Page/login','refresh');
+				$config['mailtype'] = 'html';
+				$this->email->from('bbm', 'Panitia BBM 2017');
+				$this->email->to($forgot['email']);
+				$this->email->set_newline("\r\n");
+				$this->email->subject("Password Recovery ");
+				$this->email->message("Salam ".$nama.
+					"Berikut adalah Password Anda : ".$password);
+				//$this->email->send();
+				//$this->email->send();
+				if ($this->email->send()) {
+					$message1=$this->session->set_flashdata('message','Pasword Anda telah dikirimakan ke email Anda, silakan cek email Anda');
+					$message2=$this->session->set_flashdata('status', 'success');
+					redirect(base_url().'Page/login','refresh');
+				} else {
+					$message1=$this->session->set_flashdata('message','Data yang dimasukan tidak sesuai');
+					$message2=$this->session->set_flashdata('status', 'danger');
+					redirect(base_url().'Page/forgot','refresh');
+				}
+
+
 			} else {
-				$message1=$this->session->set_flashdata('message','Data yang dimasukan tidak sesuai');
+				$message1=$this->session->set_flashdata('message','Semua field harus di isi');
 				$message2=$this->session->set_flashdata('status', 'danger');
-				redirect(base_url().'Page/forgot','refresh');
+				redirect(base_url().'Page/forgotpasssword','refresh');
 			}
+			
+			
 
 		}
 
