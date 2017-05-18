@@ -6,7 +6,9 @@
 			$this->load->library('pagination');
 		}
 		public function admin(){
+			
 			if ($this->session->userdata('logged')['logged'] ) {
+				
 				$data['count']=$this->getcount();
 				$config = array();
 				$config["base_url"] = base_url() . "C_Admin/admin";
@@ -29,10 +31,26 @@
 				$data['peserta'] = $this->M_Admin->getallpeserta($config["per_page"], $page);
 				$str_links = $this->pagination->create_links();
 				$data["links"] = explode('&nbsp;',$str_links );
-
+				
 				// View data according to array.
 				$this->load->view('navigation');
 				$this->load->view("v_admin", $data);
+			} else {
+				$this->load->view('v_loginadmin');
+			}
+		}
+
+
+
+		public function maestro(){
+			
+			if ($this->session->userdata('logged')['logged'] ) {
+				
+				$data['count']=$this->getcount();
+				$data['maestro']=$this->M_Admin->getcountbymaestro();
+				// View data according to array.
+				$this->load->view('navigation');
+				$this->load->view("v_maestro", $data);
 			} else {
 				$this->load->view('v_loginadmin');
 			}
@@ -50,7 +68,7 @@
 			$username=$this->input->post('username');
 			$password=$this->input->post('password');
 			
-			if ($username == 'admin_sm' && $password=='p4p4nd4y4n') {
+			if ($username == 'admin_bbm' && $password=='c1kur4y') {
 				$sess_array = array('username' => $username, 'logged' => TRUE );
 				$this->session->set_userdata('logged',$sess_array);
 				redirect(base_url().'C_Admin/admin','refresh');

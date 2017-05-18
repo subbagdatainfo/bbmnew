@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Seniman Mengajar</title>
+    <title>BBM</title>
 
     <!-- Bootstrap Core CSS -->
     
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Seniman Mengajar</a>
+                <a class="navbar-brand" href="index.html">Belajar Bersama Maestro</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -74,8 +74,11 @@
                         <li>
                             <a href="<?php echo base_url().'C_Admin/admin';?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li>
+                       <!--  <li>
                             <a href="<?php echo base_url().'C_Admin/sendmail';?>"><i class="fa fa-envelope fa-fw"></i> Email</a>
+                        </li> -->
+                        <li>
+                            <a href="<?php echo base_url().'C_Admin/maestro';?>"><i class="fa fa-user fa-fw"></i> Maestro</a>
                         </li>
                         
                     </ul>

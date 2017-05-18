@@ -30,7 +30,7 @@
 		}
 		// Count all record of table "contact_info" in database.
 		public function getcountpeserta() {
-			return $this->db->count_all("peserta");
+			return $this->db->count_all("siswa");
 		}
 
 		// Fetch data according to per_page limit.
@@ -38,7 +38,7 @@
 			// $this->db->limit($limit);
 			//$this->db->where('id', $id);
 			// $query = $this->db->get("peserta");
-			$query=$this->db->query("SELECT * FROM peserta limit $id,$limit ");
+			$query=$this->db->query("SELECT * FROM siswa limit $id,$limit ");
 			if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
 			$data[] = $row;
@@ -50,7 +50,13 @@
 		}
 
 		public function getemail(){
-			$query=$this->db->query("SELECT email from peserta");
+			$query=$this->db->query("SELECT email from siswa");
 			return $query;
+		}
+
+
+		public function getcountbymaestro(){
+			$maestro=$this->db->query("SELECT MAESTRO,COUNT(MAESTRO) FROM siswa GROUP BY MAESTRO");
+			return $maestro;
 		}
 	}
