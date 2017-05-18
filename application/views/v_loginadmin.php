@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Seniman Mengajar</title>
+    <title>BBM 2017</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo HTTP_VENDOR_PATH;?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
