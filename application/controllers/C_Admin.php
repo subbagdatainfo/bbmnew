@@ -37,7 +37,7 @@
 				foreach ($data['peserta'] as $key ) {
 					//echo $key->NAMA;
 					// $dir=scandir('data/'.$key->NAMA);
-					if (count(glob('data/'.$key->NAMA))==0) {
+					if (count(count(scandir('data/'.$key->NAMA)) == 2) {
 						$data['dir'][$key->NISN]=TRUE;
 					} else {
 						$data['dir'][$key->NISN]=FALSE;

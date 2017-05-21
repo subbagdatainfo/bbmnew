@@ -81,9 +81,9 @@
                                     <td>
                                         <?php
                                         if ($dir[$row->NISN]) {
-                                             echo $dir[$row->NISN];?><i class ="fa fa-remove"></i><?php
+                                             ?><i class ="fa fa-remove"></i><?php
                                          } else {
-                                             echo $dir[$row->NISN];?><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a><?php
+                                             ?><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a><?php
                                          }
                                           
                                         ?>
