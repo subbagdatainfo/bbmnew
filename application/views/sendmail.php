@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Attach File</label>
-                                        <input type="file" name="userfile">
+                                        <input type="file" name="userfile" value="">
                                     </div>
                                     <div class="col-lg-12 text-center">
                                         <div id="success"></div>

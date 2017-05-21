@@ -164,8 +164,9 @@
 		}
 
 		public function send(){
-			if (NULL != $this->input->post('userfile')) {
+			if (NULL !== $this->input->post('userfile') ) {
 				$detail_email['attach_path']='';
+				
 			} else {
 				$detail_email['attach_path']='';
 				$pathdirectory='assets/';
@@ -178,6 +179,7 @@
 	            $file_ext = $data_file['file_ext'];
 				$detail_email['attach_path']='assets/attachment'.$file_ext;
 				$config['overwrite'] = TRUE;
+				
 			}
 			
 			$addressall='';
@@ -215,13 +217,16 @@
 		public function sendtoaddress($detail_email){
 			$this->load->library('email');
 			 $this->email->clear(TRUE);
-			$this->email->from('pembinaantenaga.kesenian', 'Panitia Seniman Mengajar');
+			$this->email->from('bbm', 'Panitia BBM 2017');
 			// $this->email->to('karyana.abdhadi@gmail.com');
 			$this->email->bcc($detail_email['address'],10);
 			$this->email->set_newline("\r\n");
 			$this->email->subject($detail_email['subject']);
 			$this->email->message($detail_email['message']);
-			$this->email->attach($detail_email['attach_path']); 
+			if ($detail_email['attach_path'] !== NULL ) {
+				$this->email->attach($detail_email['attach_path']); 
+			}
+			
 			//$this->email->send();
 			if ($this->email->send()) {
 				return TRUE;
