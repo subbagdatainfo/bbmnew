@@ -37,11 +37,11 @@
 				foreach ($data['peserta'] as $key ) {
 					//echo $key->NAMA;
 					// $dir=scandir('data/'.$key->NAMA);
-					if (count(glob('data/'.$key->NAMA.'/'))==0) {
+					if (count(glob('data/'.$key->NAMA.'/*'))==0) {
 						$data['dir'][$key->NISN]=TRUE;
 					} else {
 						$data['dir'][$key->NISN]=FALSE;
-						print_r(count(glob('data/'.$key->NAMA)));
+						//print_r(count(glob('data/'.$key->NAMA)));
 					}
 					
 				}
