@@ -173,42 +173,6 @@
 	            $video['row']=$videokey->num_rows() ;
 	            $kontenarray['video']=$video;
 
-	            //$kontenarray=$piagamrow;
-                // foreach ($datakonten->result_array() as $keykonten ) {
-                //     if ($keykonten['jenis']=='profpict') {
-                //         $kontenarray['profpict']=$keykonten['PATH'];
-                //         $this->session->set_userdata('profpict', $kontenarray['profpict']);
-                //     }
-                //     if ($keykonten['jenis']=='sr') {
-                    
-                //         $kontenarray['sr']=$keykonten['PATH'];
-                //         $this->session->set_userdata('sr', $kontenarray['sr']);
-                //     }
-                //     if ($keykonten['jenis']=='sks') {
-                //         $kontenarray['sks']=$keykonten['PATH'];
-                //         $this->session->set_userdata('sks', $kontenarray['sks']);
-                //     }
-                //     if ($keykonten['jenis']=='drh') {
-                //         $kontenarray['drh']=$keykonten['PATH'];
-                //         $this->session->userdata('drh', $kontenarray['drh']);
-                //     }
-                //     if ($keykonten['jenis']=='spot') {
-                //         $kontenarray['spot']=$keykonten['PATH'];
-                //     }
-                //     if ($keykonten['jenis']=='piagam') {
-                //     	$piagam[$keykonten['SEQUENCE']] = $keykonten['PATH'];
-                //         $kontenarray['piagam']=$piagam;
-                //     }
-                //     if ($keykonten['jenis']=='fk') {
-                //     	$fk[$keykonten[$SEQUENCE]] = $keykonten['PATH'];
-                //         $kontenarray['fk']=$fk;
-                //     }
-                //     if ($keykonten['jenis']=='video') {
-                //     	$video[$keykonten[$SEQUENCE]] = $keykonten['PATH'];
-                //         $kontenarray['video']=$video;
-                //     }
-                // }
-
                 $this->load->view('detail', $kontenarray);
                     //$this->loadform($kontenarray);
             } else {

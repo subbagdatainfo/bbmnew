@@ -80,6 +80,9 @@
                         <li>
                             <a href="<?php echo base_url().'C_Admin/maestro';?>"><i class="fa fa-user fa-fw"></i> Maestro</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url().'C_Admin/kontak';?>"><i class="fa fa-folder-open fa-fw"></i> Pertanyaan</a>
+                        </li>
                         
                     </ul>
 

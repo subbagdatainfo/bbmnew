@@ -37,6 +37,7 @@
 
                     </h2>
                     <hr>
+                    <?php echo validation_errors(); ?>
                     <?php if($this->session->flashdata('status')=="success"){ ?>
                         <p><h3><span class="label label-success"><?php echo $this->session->flashdata('message'); ?></span></h3></p>
                         <?php }elseif ($this->session->flashdata('status')=='danger') {?>

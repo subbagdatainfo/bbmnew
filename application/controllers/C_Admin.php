@@ -14,33 +14,85 @@
 				$config["base_url"] = base_url() . "C_Admin/admin";
 				$total_row = $this->M_Admin->getcountpeserta();
 				$config["total_rows"] = $total_row;
-				$config["per_page"] = 20;
+				$config["per_page"] = 25;
 				$config['use_page_numbers'] = TRUE;
 				$config['num_links'] = $total_row;
-				$config['cur_tag_open'] = '&nbsp;<a class="current">';
-				$config['cur_tag_close'] = '</a>';
+				$config['first_tag_open'] = $config['last_tag_open'] = $config['next_tag_open'] = $config['prev_tag_open'] = $config['num_tag_open'] = '<li>';
+        		$config['first_tag_close'] = $config['last_tag_close'] = $config['next_tag_close'] = $config['prev_tag_close'] = $config['num_tag_close'] = '</li>';
+         
+        		$config['cur_tag_open'] = '<li class="active"><span><b>';
+       			$config['cur_tag_close'] = '</b></span></li>';
 				$config['next_link'] = 'Next';
 				$config['prev_link'] = 'Previous';
 
 				$this->pagination->initialize($config);
-				if($this->uri->segment(3)){
-					$page = ($this->uri->segment(3)) ;
-				}else{
-					$page = 1;
-				}
-				$data['peserta'] = $this->M_Admin->getallpeserta($config["per_page"], $page);
+				// if($this->uri->segment(3)){
+				// 	$page = ($this->uri->segment(3)) ;
+				// }else{
+				// 	$page = 1;
+				// }
+				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        		$offset = $page == 0 ? 0 : ($page - 1) * $config["per_page"];
+				$data['peserta'] = $this->M_Admin->getallpeserta($config["per_page"], $offset);
 				$str_links = $this->pagination->create_links();
 				$data["links"] = explode('&nbsp;',$str_links );
-				
+				$data['page'] = $page==0? 1:$page;
 				// View data according to array.
 				$this->load->view('navigation');
 				$this->load->view("v_admin", $data);
+				// $this->load->view("image", $data);
 			} else {
 				$this->load->view('v_loginadmin');
 			}
 		}
 
+		public function detailpeserta($nama,$jenis){
+			// echo $nama.'<br>';
+			// echo $jenis;
+			$dirname="data/" . $nama;
+			echo $dirname.'/'.$nama.'_<br>';
+			$maps_dir='./data/'.$nama.'/<br>';
+			echo $maps_dir;
+	        $maps = directory_map('./data/'.$nama.'/');
 
+	        $nama_file = $nama ."_" . $jenis;
+	        echo $nama_file;
+	        
+	        $file_names = preg_grep('/'.$nama_file.'/', $maps);
+
+	        foreach ($file_names as $key => $value) {
+	            $file_name = $value;
+	        }
+	        
+	        $file_path=realpath($dirname);
+	        // $file_name=$registration_no ."_" . strtolower($lampiran_name) . ".jpg"; 				 				 
+	        $myfile=$file_path . "/" . $file_name;
+	        		 		 
+	        // header('Content-Type: image/jpeg');
+	        // header('Content-Disposition: inline; filename="' . $file_name .'"');			 		 
+
+	        // if (file_exists($myfile)) {
+	        //     header("Content-Length: " . filesize($myfile))	;	 
+	        //     readfile($myfile);
+	        // } else {			 
+	        //     $canvas = imagecreatetruecolor(100, 150);
+	        //     $pink = imagecolorallocate($canvas, 255, 105, 180);
+	        //     $white = imagecolorallocate($canvas, 255, 255, 255);
+	        //     $green = imagecolorallocate($canvas, 132, 135, 28); 
+	        //     $grey = imagecolorallocate($canvas, 128, 128, 128);
+	        //     $black = imagecolorallocate($canvas, 0, 0, 0);
+	        //     $font = 'arialn.ttf';		
+	         
+	        //     imagestring ( $canvas , 3 , 25 , 25 , "Not Found" , $grey );
+	        //     imagestring ( $canvas , 3 , 30 , 30 , "Not Found" , $black );
+	        //     //imagettftext($canvas, 20, 0, 25,  25, $grey,$font, 12);     
+	        //     //imagettftext($canvas, 20, 0, 30,  30, $black,$font , 12);			 
+
+	        //     imagejpeg($canvas);
+	        //     imagedestroy($canvas);
+	        // }
+	        exit;
+		}
 
 		public function maestro(){
 			
@@ -51,6 +103,19 @@
 				// View data according to array.
 				$this->load->view('navigation');
 				$this->load->view("v_maestro", $data);
+			} else {
+				$this->load->view('v_loginadmin');
+			}
+		}
+
+		public function kontak(){
+			if ($this->session->userdata('logged')['logged'] ) {
+				
+				//$data['count']=$this->getcount();
+				$data['kontak']=$this->M_Admin->getkontak();
+				// View data according to array.
+				$this->load->view('navigation');
+				$this->load->view("v_kontak", $data);
 			} else {
 				$this->load->view('v_loginadmin');
 			}
