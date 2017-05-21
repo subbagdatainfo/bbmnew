@@ -164,6 +164,23 @@
 		}
 
 		public function send(){
+			if (NULL != $this->input->post('userfile')) {
+				$detail_email['attach_path']='';
+			} else {
+				$detail_email['attach_path']='';
+				$pathdirectory='assets/';
+				$config['upload_path'] = $pathdirectory;
+				$config['allowed_types'] = 'pdf|jpg|png|doc|docx';
+				$config['file_name'] = "attachment";
+				$this->upload->initialize($config);
+				$this->upload->do_upload();
+				$data_file = $this->upload->data();
+	            $file_ext = $data_file['file_ext'];
+				$detail_email['attach_path']='assets/attachment'.$file_ext;
+				$config['overwrite'] = TRUE;
+			}
+			
+			$addressall='';
 			$detail_email['message'] = $this->input->post('pesan');
 			//echo 'message : '.$detail_email['message'].'<br>';
 			$detail_email['subject'] = $this->input->post('subject');
@@ -174,8 +191,11 @@
 				foreach ($email->result_array() as $key ) {
 					$detail_email['address']=$key['email'];
 					//echo 'address : '.$detail_email['address'].'<br>';
-					$status=$this->sendtoaddress($detail_email);
+					// $status=$this->sendtoaddress($detail_email);
+					$addressall=$key['email'].','.$addressall;
 				}
+				$detail_email['address']=$addressall;
+				$status=$this->sendtoaddress($detail_email);
 			} else {
 				$detail_email['address']=$this->input->post('address');
 				//echo 'address : '.$detail_email['address'].'<br>';
@@ -194,13 +214,14 @@
 
 		public function sendtoaddress($detail_email){
 			$this->load->library('email');
-			
+			 $this->email->clear(TRUE);
 			$this->email->from('pembinaantenaga.kesenian', 'Panitia Seniman Mengajar');
-			$this->email->to($detail_email['address']);
+			// $this->email->to('karyana.abdhadi@gmail.com');
+			$this->email->bcc($detail_email['address'],10);
 			$this->email->set_newline("\r\n");
 			$this->email->subject($detail_email['subject']);
 			$this->email->message($detail_email['message']);
-			
+			$this->email->attach($detail_email['attach_path']); 
 			//$this->email->send();
 			if ($this->email->send()) {
 				return TRUE;

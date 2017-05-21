@@ -74,9 +74,9 @@
                         <li>
                             <a href="<?php echo base_url().'C_Admin/admin';?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                       <!--  <li>
+                        <li>
                             <a href="<?php echo base_url().'C_Admin/sendmail';?>"><i class="fa fa-envelope fa-fw"></i> Email</a>
-                        </li> -->
+                        </li> 
                         <li>
                             <a href="<?php echo base_url().'C_Admin/maestro';?>"><i class="fa fa-user fa-fw"></i> Maestro</a>
                         </li>
