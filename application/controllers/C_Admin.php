@@ -68,29 +68,29 @@
 	        // $file_name=$registration_no ."_" . strtolower($lampiran_name) . ".jpg"; 				 				 
 	        $myfile=$file_path . "/" . $file_name;
 	        		 		 
-	        // header('Content-Type: image/jpeg');
-	        // header('Content-Disposition: inline; filename="' . $file_name .'"');			 		 
+	        header('Content-Type: image/jpeg');
+	        header('Content-Disposition: inline; filename="' . $file_name .'"');			 		 
 
-	        // if (file_exists($myfile)) {
-	        //     header("Content-Length: " . filesize($myfile))	;	 
-	        //     readfile($myfile);
-	        // } else {			 
-	        //     $canvas = imagecreatetruecolor(100, 150);
-	        //     $pink = imagecolorallocate($canvas, 255, 105, 180);
-	        //     $white = imagecolorallocate($canvas, 255, 255, 255);
-	        //     $green = imagecolorallocate($canvas, 132, 135, 28); 
-	        //     $grey = imagecolorallocate($canvas, 128, 128, 128);
-	        //     $black = imagecolorallocate($canvas, 0, 0, 0);
-	        //     $font = 'arialn.ttf';		
+	        if (file_exists($myfile)) {
+	            header("Content-Length: " . filesize($myfile))	;	 
+	            readfile($myfile);
+	        } else {			 
+	            $canvas = imagecreatetruecolor(100, 150);
+	            $pink = imagecolorallocate($canvas, 255, 105, 180);
+	            $white = imagecolorallocate($canvas, 255, 255, 255);
+	            $green = imagecolorallocate($canvas, 132, 135, 28); 
+	            $grey = imagecolorallocate($canvas, 128, 128, 128);
+	            $black = imagecolorallocate($canvas, 0, 0, 0);
+	            $font = 'arialn.ttf';		
 	         
-	        //     imagestring ( $canvas , 3 , 25 , 25 , "Not Found" , $grey );
-	        //     imagestring ( $canvas , 3 , 30 , 30 , "Not Found" , $black );
-	        //     //imagettftext($canvas, 20, 0, 25,  25, $grey,$font, 12);     
-	        //     //imagettftext($canvas, 20, 0, 30,  30, $black,$font , 12);			 
+	            imagestring ( $canvas , 3 , 25 , 25 , "Not Found" , $grey );
+	            imagestring ( $canvas , 3 , 30 , 30 , "Not Found" , $black );
+	            //imagettftext($canvas, 20, 0, 25,  25, $grey,$font, 12);     
+	            //imagettftext($canvas, 20, 0, 30,  30, $black,$font , 12);			 
 
-	        //     imagejpeg($canvas);
-	        //     imagedestroy($canvas);
-	        // }
+	            imagejpeg($canvas);
+	            imagedestroy($canvas);
+	        }
 	        exit;
 		}
 
