@@ -428,9 +428,17 @@
 						redirect(base_url().'C_Peserta/detail','refresh');
 					}
 				} else{
-					$message1=$this->session->set_flashdata('message','Upload Berhasil');
-					$message2=$this->session->set_flashdata('status', 'success');
-					redirect(base_url().'C_Peserta/detail','refresh');
+					$result = $this->M_Peserta->updatesurat($konten);
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Upload Berhasil');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
+
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
 				}
 				
 				
@@ -468,10 +476,17 @@
 						redirect(base_url().'C_Peserta/detail','refresh');
 					}
 				} else{
-					//$result=$this->M_Peserta->updatepiagam($konten);
-					$message1=$this->session->set_flashdata('message','Upload Berhasil');
-					$message2=$this->session->set_flashdata('status', 'success');
-					redirect(base_url().'C_Peserta/detail','refresh');
+					$result=$this->M_Peserta->updatepiagam($konten);
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Upload Berhasil');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
+
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
 				}
 				
 				
@@ -488,9 +503,7 @@
 			$name = "fk-".$this->input->post('fkrow');
 			$konten['path_foto']=$this->uploadkonten($name);
 			$konten['sequence_foto'] = $this->input->post('fkrow');
-			// echo $konten['path_piagam']."<br>";
-			// echo $konten['sequence_piagam'];
-			//$konten['upload_time']=date("d-m-Y H:i:s");
+			
 			if (NULL !== $konten['path_foto']) {
 					// $data_file = $this->upload->data();
 	    //         	$file_ext = $data_file['file_ext'];
@@ -509,10 +522,17 @@
 						redirect(base_url().'C_Peserta/detail','refresh');
 					}
 				} else{
-					//$result=$this->M_Peserta->updatepiagam($konten);
-					$message1=$this->session->set_flashdata('message','Upload Berhasil');
-					$message2=$this->session->set_flashdata('status', 'success');
-					redirect(base_url().'C_Peserta/detail','refresh');
+					$result=$this->M_Peserta->updatefk($konten);
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Upload Berhasil');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
+
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
 				}
 				
 				
@@ -524,6 +544,10 @@
 			
 		}
 
+		public function time(){
+			$time = $this->get_tgl(now());
+			echo $time;
+		}
 		function addvideo(){
 			$konten['nisn'] = $this->session->userdata('nisn');
 			//$name = "fk-".$this->input->post('fkrow');
@@ -547,9 +571,16 @@
 					}
 				} else{
 					$result=$this->M_Peserta->updatevideo($konten);
-					$message1=$this->session->set_flashdata('message','Tautan berhasil ditambahkan');
-					$message2=$this->session->set_flashdata('status', 'success');
-					redirect(base_url().'C_Peserta/detail','refresh');
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Tautan berhasil ditambahkan');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
+
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
 				}	
 			
 		}

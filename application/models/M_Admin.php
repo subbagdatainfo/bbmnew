@@ -65,4 +65,15 @@
 			$kontak = $this->db->query("SELECT * FROM kontak");
 			return $kontak;
 		}
+
+		public function getkonten($nisn,$jenis){
+			$query=$this->db->query("SELECT * FROM konten where NISN = '$nisn' and JENIS = '$jenis' ");
+			return $query;
+		}
+
+
+		public function getdirdownload($nisn){
+			$query=$this->db->query("SELECT NAMA FROM siswa WHERE NISN = '$nisn'");
+			return $query;
+		}
 	}

@@ -113,8 +113,11 @@
 		}
 
 		public function updatevideo($konten){
-			$update=$this->db->update('video', $konten);
-			if ($update) {
+			$nisn=$konten['nisn'];
+			$sequence=$konten['sequence_video'];
+			$path = $konten['path_video'];
+			$query= $this->db->query ("UPDATE video SET path_video = '$path', upload_video = current_timestamp where nisn = '$nisn' and sequence_video=$sequence");
+			if ($query) {
 				return TRUE;
 			} else {
 				return FALSE;
@@ -134,6 +137,43 @@
 			if($result){
 				return $result;
 			}else {
+				return FALSE;
+			}
+		}
+
+
+		public function updatepiagam($konten){
+			$nisn=$konten['nisn'];
+			$sequence_piagam=$konten['sequence_piagam'];
+			$path_piagam = $konten['path_piagam'];
+			$query= $this->db->query ("UPDATE piagam SET path_piagam = '$path_piagam', upload_piagam = current_timestamp where nisn = '$nisn' and sequence_piagam=$sequence_piagam");
+			if ($query) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+		}
+
+		public function updatefk($konten){
+			$nisn=$konten['nisn'];
+			$sequence_foto=$konten['sequence_foto'];
+			$path_foto = $konten['path_foto'];
+			$query= $this->db->query ("UPDATE foto SET path_foto = '$path_foto', upload_foto = current_timestamp where nisn = '$nisn' and sequence_foto=$sequence_foto");
+			if ($query) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+		}
+
+		public function updatesurat($konten){
+			$nisn=$konten['nisn'];
+			$jenis=$konten['jenis'];
+			$path = $konten['path'];
+			$query= $this->db->query ("UPDATE konten SET PATH = '$path', upload_time = current_timestamp where nisn = '$nisn' and JENIS='$jenis'");
+			if ($query) {
+				return TRUE;
+			} else {
 				return FALSE;
 			}
 		}

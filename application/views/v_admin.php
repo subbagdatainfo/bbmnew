@@ -52,30 +52,34 @@
                             </div> -->
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table class="table">
+                        <div class="panel-body table-responsive">
+                            <table class="table ">
                             <tr>
                                 <th>#</th>
+                                <th>NISN</th>
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Nomor Kontak</th>
                                 <th>NAMA SEKOLAH</th>
                                 <th>MAESTRO</th>
-                                <th>SERTIFIKAT</th>
+                                <!-- <th>SERTIFIKAT</th>
                                 <th>SURAT REKOMENDASI</th>
-                                <th>SURAT KETERANGAN SEHAT</th>
+                                <th>SURAT KETERANGAN SEHAT</th> -->
+                                <th>Download</th>
                                 <!-- <th>Action</th> -->
                             </tr>
                             <?php $nom=($page-1) * 25;foreach ($peserta as $row) {
                                 $nom++;
                                 ?><tr>
                                     <td><?php echo $nom;?></td>
+                                    <td><?php echo $row->NISN;?></td>
                                     <td><?php echo $row->NAMA;?></td>
                                     <td><?php echo $row->EMAIL;?></td>
                                     <td><?php echo $row->NO_TELP;?></td>
                                     <td><?php echo $row->SEKOLAH;?></td>
                                     <td><?php echo $row->MAESTRO;?></td>
-                                    <td>
+                                    <td><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a></td>
+                                    <!-- <td>
                                         <?php
                                             $piagam="C_Admin/detailpeserta/" . $row->NAMA."/piagam";
                                             echo anchor($piagam, '<i class="fa fa-eye"></i>','class="link-class"');
@@ -87,7 +91,19 @@
                                             //         'data-img-url' => site_url($piagam)
                                             //     ));
                                         ?>
-                                    </td>
+                                    </td> -->
+                                    <!-- <td>
+                                        <?php
+                                            $ijazahfull="C_Admin/detailpeserta/" . $row->NAMA."/piagam";
+                                            echo anchor('#myModal', '<i class="fa fa-eye"></i>', 
+                                                array(
+                                                    'title' => 'Lihat Ijazah', 
+                                                    'data-toggle' => 'modal',
+                                                    'class' => 'image-floating',
+                                                    'data-img-url' => site_url($ijazahfull)
+                                                ));
+                                        ?>
+                                    </td> -->
                                 </tr><?php
                             }?>
                             </table>
@@ -166,9 +182,7 @@
     
 
     <!-- Morris Charts JavaScript -->
-    <script src="<?php echo HTTP_VENDOR_PATH;?>raphael/raphael.min.js"></script>
-    <script src="<?php echo HTTP_VENDOR_PATH;?>morrisjs/morris.min.js"></script>
-    <script src="<?php echo base_url();?>/assets/admin/data/morris-data.js"></script>
+    
 
     <!-- Custom Theme JavaScript -->
     

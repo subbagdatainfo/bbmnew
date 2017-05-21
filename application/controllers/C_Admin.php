@@ -46,28 +46,33 @@
 			}
 		}
 
+		
 		public function detailpeserta($nama,$jenis){
-			// echo $nama.'<br>';
-			// echo $jenis;
+			$nama=urldecode($nama);
+			
+
+			$this->load->helper('directory');
 			$dirname="data/" . $nama;
-			echo $dirname.'/'.$nama.'_<br>';
-			$maps_dir='./data/'.$nama.'/<br>';
-			echo $maps_dir;
+			//echo $dirname.'<br>';
+			
+			
 	        $maps = directory_map('./data/'.$nama.'/');
 
 	        $nama_file = $nama ."_" . $jenis;
-	        echo $nama_file;
+	        //echo $nama_file.'<br>';
 	        
 	        $file_names = preg_grep('/'.$nama_file.'/', $maps);
 
 	        foreach ($file_names as $key => $value) {
 	            $file_name = $value;
 	        }
-	        
+	        //echo $file_name;
 	        $file_path=realpath($dirname);
+	        
 	        // $file_name=$registration_no ."_" . strtolower($lampiran_name) . ".jpg"; 				 				 
-	        $myfile=$file_path . "/" . $file_name;
-	        		 		 
+	        $myfile=$dirname . "/" . $file_name;
+	        echo $myfile;
+	        ob_clean(); 		 
 	        header('Content-Type: image/jpeg');
 	        header('Content-Disposition: inline; filename="' . $file_name .'"');			 		 
 
@@ -207,5 +212,45 @@
 			// echo $this->email->print_debugger();
 			// echo smtp_user();
 		}
+
+
+		public function download($nisn)
+	    {
+	    	$name = $this->M_Admin->getdirdownload($nisn);
+	    	foreach ($name->result_array() as $key ) {
+	    		$dirname='data/'.$key['NAMA'];
+	    		$name=$key['NAMA'];
+	    	}
+	        // $dirmain="upload/data/" . $registration_no ;			
+	        // $dirname=$dirmain . "/lampiran";
+	        // $dirthumb=$dirmain . "/thumbnail" ;	
+	    	echo $dirname;
+	    	$this->zip->read_dir($dirname, FALSE);
+	    	// $this->zip->clear_data();
+	    	$archieve=$this->zip->archive('zip/'.$name.'.zip');
+	    	$this->zip->clear_data();
+	    	
+
+	        $file_path=realpath($dirmain);
+	        $file_zip=  $name . ".zip";
+
+	        $myfile =  "zip/" .$file_zip;           
+	        header("Content-Type: application/zip");
+	        header("Content-Disposition: attachment; filename=$file_zip");
+	        header("Content-Length: " . filesize($myfile));
+
+	        readfile($myfile);
+	        exit;		  		  
+		}
+
+		public function download_zip_all()
+	    {
+	        $namafile = date('Ymd').'_lampiran_semua_peserta.zip';
+	        $path="data/";
+	        
+	        $this->zip->read_dir($path, FALSE);
+
+	        $this->zip->download($namafile);
+	    }
 
 	}
