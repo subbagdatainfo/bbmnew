@@ -34,6 +34,16 @@
 				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         		$offset = $page == 0 ? 0 : ($page - 1) * $config["per_page"];
 				$data['peserta'] = $this->M_Admin->getallpeserta($config["per_page"], $offset);
+				foreach ($data['peserta'] as $key ) {
+					//echo $key->NAMA;
+					// $dir=scandir('data/'.$key->NAMA);
+					if (count(glob('data/'.$key->NAMA))==0) {
+						$data['dir'][$key->NISN]=TRUE;
+					} else {
+						$data['dir'][$key->NISN]=FALSE;
+					}
+					
+				}
 				$str_links = $this->pagination->create_links();
 				$data["links"] = explode('&nbsp;',$str_links );
 				$data['page'] = $page==0? 1:$page;
@@ -250,7 +260,7 @@
 	        // $dirmain="upload/data/" . $registration_no ;			
 	        // $dirname=$dirmain . "/lampiran";
 	        // $dirthumb=$dirmain . "/thumbnail" ;	
-	    	echo $dirname;
+	    	
 	    	$this->zip->read_dir($dirname, FALSE);
 	    	// $this->zip->clear_data();
 	    	$archieve=$this->zip->archive('zip/'.$name.'.zip');

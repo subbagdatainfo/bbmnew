@@ -78,7 +78,17 @@
                                     <td><?php echo $row->NO_TELP;?></td>
                                     <td><?php echo $row->SEKOLAH;?></td>
                                     <td><?php echo $row->MAESTRO;?></td>
-                                    <td><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a></td>
+                                    <td>
+                                        <?php
+                                        if ($dir[$row->NISN]) {
+                                             ?><i class ="fa fa-remove"></i><?php
+                                         } else {
+                                             ?><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a><?php
+                                         }
+                                          
+                                        ?>
+                                    </td>
+                                   <!--  <td><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a></td> -->
                                     <!-- <td>
                                         <?php
                                             $piagam="C_Admin/detailpeserta/" . $row->NAMA."/piagam";
