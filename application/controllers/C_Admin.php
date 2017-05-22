@@ -37,7 +37,7 @@
 				foreach ($data['peserta'] as $key ) {
 					//echo $key->NAMA;
 					// $dir=scandir('data/'.$key->NAMA);
-					if (count(glob('data/'.$key->NAMA.'/'))==0) {
+					if (count(glob('data/'.$key->NAMA.'/*'))==0) {
 						$data['dir'][$key->NISN]=TRUE;
 					} else {
 						$data['dir'][$key->NISN]=FALSE;
@@ -271,7 +271,9 @@
 	        $file_path=realpath($dirmain);
 	        $file_zip=  $name . ".zip";
 
-	        $myfile =  "zip/" .$file_zip;           
+	        $myfile =  "zip/" .$file_zip;
+	        ob_end_clean();
+	        // $this->zip->download($file_zip);           
 	        header("Content-Type: application/zip");
 	        header("Content-Disposition: attachment; filename=$file_zip");
 	        header("Content-Length: " . filesize($myfile));
