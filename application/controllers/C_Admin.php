@@ -8,7 +8,7 @@
 		public function admin(){
 			
 			if ($this->session->userdata('logged')['logged'] ) {
-				
+				ob_end_clean();
 				$data['count']=$this->getcount();
 				$config = array();
 				$config["base_url"] = base_url() . "C_Admin/admin";
@@ -57,6 +57,9 @@
 			}
 		}
 
+		public function info(){
+			echo phpinfo();
+		}
 		
 		public function detailpeserta($nama,$jenis){
 			$nama=urldecode($nama);
@@ -263,7 +266,7 @@
 	        // $dirthumb=$dirmain . "/thumbnail" ;	
 	    	
 	    	$this->zip->read_dir($dirname, FALSE);
-	    	// $this->zip->clear_data();
+	    	//$this->zip->clear_data();
 	    	$archieve=$this->zip->archive('zip/'.$name.'.zip');
 	    	$this->zip->clear_data();
 	    	
@@ -279,6 +282,8 @@
 	        header("Content-Length: " . filesize($myfile));
 
 	        readfile($myfile);
+	        ob_end_clean();
+	        // $this->zip->downlo
 	        exit;		  		  
 		}
 
