@@ -41,7 +41,7 @@
 						$data['dir'][$key->NISN]=TRUE;
 					} else {
 						$data['dir'][$key->NISN]=FALSE;
-						print_r(count(glob('data/'.$key->NAMA)));
+						//print_r(count(glob('data/'.$key->NAMA)));
 					}
 					
 				}
