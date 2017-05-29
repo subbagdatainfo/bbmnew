@@ -134,7 +134,7 @@
                                             <div class="row-lg-6">
                                                 <label class="label label-info">Essai            :</label><br>
                                                 <?php if ($essai !== NULL){
-                                                        ?><a class="img-responsive center-block" href="<?php echo base_url().$spot;?>">Essai Siswa</a><br>
+                                                        ?><a class="img-responsive center-block" href="<?php echo base_url().$essai;?>">Essai Siswa</a><br>
                                                         <a href="#updateessai" class="portfolio-link btn btn-success btn-default" data-toggle="modal">Update</a><?php
                                                         }else {
                                                             ?> <span class="label label-default">Belum Tersedia</span><br><br>
