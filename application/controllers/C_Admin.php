@@ -297,4 +297,14 @@
 	        $this->zip->download($namafile);
 	    }
 
+	    public function getvideo(){
+
+	    	$video = $this->M_Admin->getlink();
+	    	foreach ($video->result_array() as $key) {
+	    		echo $key['NISN'].'  '.$key['NAMA'].'  '.$key['path_video'].'<br>';
+	    	}
+	    }
+
+	    
+
 	}
