@@ -404,44 +404,44 @@
 			$konten['jenis'] = $this->input->post('jenis');
 			$konten['path']=$this->uploadkonten($konten['jenis']);
 			echo $konten['path'];
-			//$konten['upload_time']=date("d-m-Y H:i:s");
-			// if (NULL !== $konten['path']) {
-			// 		// $data_file = $this->upload->data();
-	  //   //         	$file_ext = $data_file['file_ext'];
-	  //           	// $konten['path']=$config['upload_path'].'/'.$config['file_name'].$file_ext;
-			// 	if (NULL == $this->input->post('update')) {
-			// 		$result=$this->M_Peserta->uploadkonten($konten);
+			$konten['upload_time']=date("d-m-Y H:i:s");
+			if (NULL !== $konten['path']) {
+					// $data_file = $this->upload->data();
+	    //         	$file_ext = $data_file['file_ext'];
+	            	// $konten['path']=$config['upload_path'].'/'.$config['file_name'].$file_ext;
+				if (NULL == $this->input->post('update')) {
+					$result=$this->M_Peserta->uploadkonten($konten);
 	            
-			// 		if ($result) {
-			// 			$message1=$this->session->set_flashdata('message','Upload Berhasil');
-			// 			$message2=$this->session->set_flashdata('status', 'success');
-			// 			redirect(base_url().'C_Peserta/detail','refresh');
-			// 		} else {
-			// 			$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
-			// 			$message2=$this->session->set_flashdata('status', 'danger');
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Upload Berhasil');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
 
-			// 			redirect(base_url().'C_Peserta/detail','refresh');
-			// 		}
-			// 	} else{
-			// 		$result = $this->M_Peserta->updatesurat($konten);
-			// 		if ($result) {
-			// 			$message1=$this->session->set_flashdata('message','Upload Berhasil');
-			// 			$message2=$this->session->set_flashdata('status', 'success');
-			// 			redirect(base_url().'C_Peserta/detail','refresh');
-			// 		} else {
-			// 			$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
-			// 			$message2=$this->session->set_flashdata('status', 'danger');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
+				} else{
+					$result = $this->M_Peserta->updatesurat($konten);
+					if ($result) {
+						$message1=$this->session->set_flashdata('message','Upload Berhasil');
+						$message2=$this->session->set_flashdata('status', 'success');
+						redirect(base_url().'C_Peserta/detail','refresh');
+					} else {
+						$message1=$this->session->set_flashdata('message','Gagal Mengakses Database');
+						$message2=$this->session->set_flashdata('status', 'danger');
 
-			// 			redirect(base_url().'C_Peserta/detail','refresh');
-			// 		}
-			// 	}
+						redirect(base_url().'C_Peserta/detail','refresh');
+					}
+				}
 				
 				
-			// } else {
-			// 	$message1=$this->session->set_flashdata('message','Upload Gagal');
-			// 	$message2=$this->session->set_flashdata('status', 'danger'); 
-	  //       	redirect(base_url().'C_Peserta/detail','refresh');
-			// }
+			} else {
+				$message1=$this->session->set_flashdata('message','Upload Gagal');
+				$message2=$this->session->set_flashdata('status', 'danger'); 
+	        	redirect(base_url().'C_Peserta/detail','refresh');
+			}
 			
 		}
 
