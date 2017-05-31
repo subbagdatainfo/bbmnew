@@ -403,12 +403,12 @@
 			$konten['nisn'] = $this->session->userdata('nisn');
 			$konten['jenis'] = $this->input->post('jenis');
 			$konten['path']=$this->uploadkonten($konten['jenis']);
-			echo $konten['path'];
-			$konten['upload_time']=date("d-m-Y H:i:s");
+			// echo $konten['path'];
+			// $konten['upload_time']=date("d-m-Y H:i:s");
 			if (NULL !== $konten['path']) {
 					// $data_file = $this->upload->data();
 	    //         	$file_ext = $data_file['file_ext'];
-	            	// $konten['path']=$config['upload_path'].'/'.$config['file_name'].$file_ext;
+	    //         	$konten['path']=$config['upload_path'].'/'.$config['file_name'].$file_ext;
 				if (NULL == $this->input->post('update')) {
 					$result=$this->M_Peserta->uploadkonten($konten);
 	            
@@ -454,9 +454,9 @@
 			// echo $konten['sequence_piagam'];
 			//$konten['upload_time']=date("d-m-Y H:i:s");
 			if (NULL !== $konten['path_piagam']) {
-					// $data_file = $this->upload->data();
-	    //         	$file_ext = $data_file['file_ext'];
-	            	// $konten['path']=$config['upload_path'].'/'.$config['file_name'].$file_ext;
+					$data_file = $this->upload->data();
+	            	$file_ext = $data_file['file_ext'];
+	            	$konten['path']=$config['upload_path'].'/'.$config['file_name'].$file_ext;
 				if (NULL == $this->input->post('update')) {
 					$result=$this->M_Peserta->uploadpiagam($konten);
 	            
