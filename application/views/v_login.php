@@ -8,7 +8,8 @@
                         <!-- <h3 class="panel-title">Silakan Log in</h3> -->
                     </div>
                     <div class="panel-body">
-                        <div class="container"> 
+                        <div class="container">
+                        <div style="text-align:left; color:red; font-size: 0.875em;"><?php echo validation_errors(); ?> </div>
                         <?php if($this->session->flashdata('status')=="success"){ ?>
                 <p><h3><span class="label label-success"><?php echo $this->session->flashdata('message'); ?></span></h3></p>
                 <?php }elseif ($this->session->flashdata('status')=='danger') {?>

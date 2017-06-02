@@ -191,20 +191,38 @@
 
 		public function auth(){
 			// $data_peserta = array();
-			$nisn=$this->input->post('nisn');
-			$password=$this->input->post('password');
-			$auth=$this->M_System->auth_peserta($nisn,$password);
-			if ($auth->num_rows() > 0) {
-				$sess_array = array('nisn' => $nisn, 'logged' => TRUE );
-				$this->session->set_userdata('logged',$sess_array);
-				foreach ($auth->result_array() as $key ) {
-					$this->session->set_userdata('nisn', $key['nisn']);
+			$this->form_validation->set_rules('nisn', 'NISN', 'required|numeric',array(
+                'required'      => 'NISN harus diisi.',
+                'numeric'	=>'Format NISN tidak sesuai'
+                
+        	));
+
+            $this->form_validation->set_rules('password', 'Password', 'required');
+            
+            if ($this->form_validation->run() == FALSE) {
+            	$this->load->view('template/header');
+				$this->load->view('v_login');
+				$this->load->view('template/footer');
+            	//redirect(base_url().'Page/login','refresh');
+            } else {
+            	$nisn=$this->input->post('nisn');
+				// $nisn= $this->security->xss_clean($nisn);
+				$password=$this->input->post('password');
+				// $password=$this->security->($password);
+				$auth=$this->M_System->auth_peserta($nisn,$password);
+				if ($auth->num_rows() > 0) {
+					$sess_array = array('nisn' => $nisn, 'logged' => TRUE );
+					$this->session->set_userdata('logged',$sess_array);
+					foreach ($auth->result_array() as $key ) {
+						$this->session->set_userdata('nisn', $key['nisn']);
+					}
+					redirect(base_url().'C_Peserta/detail','refresh');
+				} else {
+					$this->session->set_flashdata('message', 'Data yang dimasukan tidak sesuai');
+					redirect(base_url().'Page/login','refresh');
 				}
-				redirect(base_url().'C_Peserta/detail','refresh');
-			} else {
-				$this->session->set_flashdata('message', 'Data yang dimasukan tidak sesuai');
-				redirect(base_url().'Page/login','refresh');
-			}
+            }
+            
 		}
 
 		public function logout(){
