@@ -60,16 +60,21 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Nomor Kontak</th>
-                                <th>NAMA SEKOLAH</th>
-                                <th>MAESTRO</th>
-                                <!-- <th>SERTIFIKAT</th>
-                                <th>SURAT REKOMENDASI</th>
-                                <th>SURAT KETERANGAN SEHAT</th> -->
+                                <th>Sekolah</th>
+                                <th>Maestro</th>
+                                <th>Foto Profil</th>
+                                <th>Surat Persetujuan Orang Tua</th>
+                                <th>Surat Rekomendasi</th>
+                                <th>Surat Keterangan Sehat</th>
+                                <th>Sertifikat</th>
+                                <th>Foto</th>
+                                <th>Video</th>
                                 <th>Download</th>
                                 <!-- <th>Action</th> -->
                             </tr>
                             <?php $nom=($page-1) * 25;foreach ($peserta as $row) {
                                 $nom++;
+                                $nisn = $row->NISN;
                                 ?><tr>
                                     <td><?php echo $nom;?></td>
                                     <td><?php echo $row->NISN;?></td>
@@ -80,40 +85,84 @@
                                     <td><?php echo $row->MAESTRO;?></td>
                                     <td>
                                         <?php
-                                        if ($dir[$row->NISN]) {
-                                             ?><i class ="fa fa-remove"></i><?php
-                                         } else {
-                                             ?><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a><?php
-                                         }
-                                          
+                                            if ($profpict[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
                                         ?>
                                     </td>
-                                   <!--  <td><a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download"></i></a></td> -->
-                                    <!-- <td>
+                                    <td>
                                         <?php
-                                            $piagam="C_Admin/detailpeserta/" . $row->NAMA."/piagam";
-                                            echo anchor($piagam, '<i class="fa fa-eye"></i>','class="link-class"');
-                                            // echo anchor('#myModal', '<i class="fa fa-eye"></i>', 
-                                            //     array(
-                                            //         'title' => 'Lihat Sertifikat', 
-                                            //         'data-toggle' => 'modal',
-                                            //         'class' => 'image-floating',
-                                            //         'data-img-url' => site_url($piagam)
-                                            //     ));
+                                            if ($spot[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
                                         ?>
-                                    </td> -->
-                                    <!-- <td>
+                                    </td>
+                                    <td>
                                         <?php
-                                            $ijazahfull="C_Admin/detailpeserta/" . $row->NAMA."/piagam";
-                                            echo anchor('#myModal', '<i class="fa fa-eye"></i>', 
-                                                array(
-                                                    'title' => 'Lihat Ijazah', 
-                                                    'data-toggle' => 'modal',
-                                                    'class' => 'image-floating',
-                                                    'data-img-url' => site_url($ijazahfull)
-                                                ));
+                                            if ($sr[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
                                         ?>
-                                    </td> -->
+                                    </td>
+                                    <td>
+                                        <?php
+                                            if ($sks[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                            if ($piagam[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                            if ($fk[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                            if ($video[$nisn]) {
+                                                ?><i class="fa fa-check" style="font-size:26px;color:green"></i><?php
+                                            } else {
+                                                ?><i class="fa fa-remove" style="font-size:26px;color:red"></i><?php
+                                            }
+                                            
+                                            
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?php echo site_url('C_Admin/download/'. $row->NISN) ;?>"><i class="fa fa-download" style="font-size:24px"></i></a>
+                                    </td>
                                 </tr><?php
                             }?>
                             </table>

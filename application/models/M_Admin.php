@@ -76,4 +76,56 @@
 			$query=$this->db->query("SELECT NAMA FROM siswa WHERE NISN = '$nisn'");
 			return $query;
 		}
+
+
+		public function getstatusprofpict($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'profpict')");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'profpict')"];
+			}
+		}
+
+		public function getstatussks($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'sks')");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'sks')"];
+			}
+		}
+
+		public function getstatussr($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'sr')");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'sr')"];
+			}
+		}
+
+		public function getstatusspot($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'spot')");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from konten where NISN = '$nisn' and JENIS = 'spot')"];
+			}
+		}
+
+		public function getstatusfk($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from foto where NISN = '$nisn' )");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from foto where NISN = '$nisn' )"];
+			}
+		}
+
+		public function getstatuspiagam($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from piagam where NISN = '$nisn' )");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from piagam where NISN = '$nisn' )"];
+			}
+		}
+
+		public function getstatusvideo($nisn){
+			$query = $this->db->query("SELECT EXISTS (SELECT NISN from video where NISN = '$nisn' )");
+			foreach ($query->result_array() as $key ) {
+				return $key["EXISTS (SELECT NISN from video where NISN = '$nisn' )"];
+			}
+		}
+
+
 	}

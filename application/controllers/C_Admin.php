@@ -35,16 +35,15 @@
         		$offset = $page == 0 ? 0 : ($page - 1) * $config["per_page"];
 				$data['peserta'] = $this->M_Admin->getallpeserta($config["per_page"], $offset);
 				foreach ($data['peserta'] as $key ) {
-					//echo $key->NAMA;
-					// $dir=scandir('data/'.$key->NAMA);
-					if (count(glob('data/'.$key->NAMA.'/*'))==0) {
-						$data['dir'][$key->NISN]=TRUE;
-					} else {
-						$data['dir'][$key->NISN]=FALSE;
-						//print_r(count(glob('data/'.$key->NAMA)));
-					}
-					
+					$data['profpict'][$key->NISN]= $this->M_Admin->getstatusprofpict($key->NISN);
+					$data['sks'][$key->NISN]= $this->M_Admin->getstatussks($key->NISN);
+					$data['spot'][$key->NISN]= $this->M_Admin->getstatusspot($key->NISN);
+					$data['sr'][$key->NISN]= $this->M_Admin->getstatussr($key->NISN);
+					$data['fk'][$key->NISN]= $this->M_Admin->getstatusfk($key->NISN);
+					$data['piagam'][$key->NISN]= $this->M_Admin->getstatuspiagam($key->NISN);
+					$data['video'][$key->NISN]= $this->M_Admin->getstatusvideo($key->NISN);
 				}
+				
 				$str_links = $this->pagination->create_links();
 				$data["links"] = explode('&nbsp;',$str_links );
 				$data['page'] = $page==0? 1:$page;
