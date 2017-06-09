@@ -83,6 +83,9 @@
                         <li>
                             <a href="<?php echo base_url().'C_Admin/kontak';?>"><i class="fa fa-folder-open fa-fw"></i> Pertanyaan</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url().'C_Admin/video';?>"><i class="fa fa-film fa-fw"></i> Video</a>
+                        </li>
                         
                     </ul>
 

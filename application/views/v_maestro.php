@@ -39,6 +39,7 @@
                             <tr>
                                 <th>Nama Maestro</th>
                                 <th>Jumlah Pendaftar</th>
+                                <th>Download</th>
                                 
                                 <!-- <th>Action</th> -->
                             </tr>
@@ -46,6 +47,9 @@
                                 ?><tr>
                                     <td><?php echo $row['MAESTRO'];?></td>
                                     <td><?php echo $row['COUNT(MAESTRO)'];?></td>
+                                    <td>
+                                        <a href="<?php echo site_url('C_Admin/downloadmaestro/'. $row['MAESTRO']) ;?>"><i class="fa fa-download" style="font-size:24px"></i></a>
+                                    </td>
                                     
                                 </tr><?php
                             }?>
@@ -61,17 +65,7 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    
-
-    <!-- Bootstrap Core JavaScript -->
-    
-
-    <!-- Metis Menu Plugin JavaScript -->
-    
-
+   
     <!-- Morris Charts JavaScript -->
     <script src="<?php echo HTTP_VENDOR_PATH;?>raphael/raphael.min.js"></script>
     <script src="<?php echo HTTP_VENDOR_PATH;?>morrisjs/morris.min.js"></script>

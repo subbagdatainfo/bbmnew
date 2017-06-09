@@ -296,12 +296,12 @@
 	        $this->zip->download($namafile);
 	    }
 
-	    public function getvideo(){
+	    public function video(){
 
-	    	$video = $this->M_Admin->getlink();
-	    	foreach ($video->result_array() as $key) {
-	    		echo $key['NISN'].'  '.$key['NAMA'].'  '.$key['path_video'].'<br>';
-	    	}
+	    	$video['list'] = $this->M_Admin->getlink();
+	    	$video['count'] = $this->M_Admin->getcountvideo();
+	    	$this->load->view('navigation');
+	    	$this->load->view('video', $video);
 	    }
 
 	    

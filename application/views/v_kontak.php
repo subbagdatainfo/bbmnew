@@ -5,28 +5,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-            <!-- <div class="row">
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $count;?></div>
-                                    <div>Jumlah Pendaftar</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div> -->
-            <!-- /.row -->
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -41,7 +20,7 @@
                                 <th>Email</th>
                                 <th>Pertanyaan</th>
                                 <th>Telepon</th>
-                                <th>Status</th>
+                                <th>Time</th>
                                 
                                 <!-- <th>Action</th> -->
                             </tr>
@@ -51,7 +30,7 @@
                                     <td><?php echo $row['email_contact'];?></td>
                                     <td><?php echo $row['message'];?></td>
                                     <td><?php echo $row['telp_contact'];?></td>
-                                    <td><?php echo $row['answered'];?></td>
+                                    <td><?php echo $row['time_message'];?></td>
                                     
                                 </tr><?php
                             }?>
@@ -67,17 +46,7 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
     
-
-    <!-- Bootstrap Core JavaScript -->
-    
-
-    <!-- Metis Menu Plugin JavaScript -->
-    
-
     <!-- Morris Charts JavaScript -->
     <script src="<?php echo HTTP_VENDOR_PATH;?>raphael/raphael.min.js"></script>
     <script src="<?php echo HTTP_VENDOR_PATH;?>morrisjs/morris.min.js"></script>
