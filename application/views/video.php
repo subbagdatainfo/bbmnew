@@ -46,20 +46,24 @@
                                 
                                 <!-- <th>Action</th> -->
                             </tr>
-                            <?php $i=0;foreach ($list->result_array() as $row) { $i++;
+                            <?php $nom=($page-1) * 20;foreach ($list->result_array() as $row) { $nom++
                                 ?><tr>
-                                    <td><?php echo $i; ?></td>
+                                    <td><?php echo $nom; ?></td>
                                     <td><?php echo $row['NISN'];?></td>
                                     <td><?php echo $row['NAMA'];?></td>
                                     <td><?php echo $row['upload_video'];?></td>
-                                    <td>
-                                        <a class="youtube " href="<?php echo $row['path_video'];?>"><i class="fa fa-film fa-fw"></i></a>
+                                    <td align="center">
+                                        <a  class="youtube" href="<?php echo $row['path_video'];?>"><i  class="fa fa-film fa-fw"></i></a>
                                     </td>
                                     
                                 </tr><?php
                             }?>
                             </table>
-                            
+                            <div class="pagination pagination-sm">
+                                <?php foreach ($links as $link) {
+                                echo "<li class >". $link."</li>";
+                                } ?>
+                            </div>  
                         </div>
                         <!-- /.panel-body -->
                     </div>

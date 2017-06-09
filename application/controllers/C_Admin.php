@@ -298,10 +298,50 @@
 
 	    public function video(){
 
-	    	$video['list'] = $this->M_Admin->getlink();
-	    	$video['count'] = $this->M_Admin->getcountvideo();
-	    	$this->load->view('navigation');
-	    	$this->load->view('video', $video);
+	    	// $video['list'] = $this->M_Admin->getlink();
+	    	// $video['count'] = $this->M_Admin->getcountvideo();
+	    	// $this->load->view('navigation');
+	    	// $this->load->view('video', $video);
+
+	    	if ($this->session->userdata('logged')['logged'] ) {
+				ob_end_clean();
+				$data['count']=$this->M_Admin->getcountvideo();
+				$config = array();
+				$config["base_url"] = base_url() . "C_Admin/video";
+				$total_row = $data['count'];
+				$config["total_rows"] = $total_row;
+				$config["per_page"] = 20;
+				$config['use_page_numbers'] = TRUE;
+				$config['num_links'] = $total_row;
+				$config['first_tag_open'] = $config['last_tag_open'] = $config['next_tag_open'] = $config['prev_tag_open'] = $config['num_tag_open'] = '<li>';
+        		$config['first_tag_close'] = $config['last_tag_close'] = $config['next_tag_close'] = $config['prev_tag_close'] = $config['num_tag_close'] = '</li>';
+         
+        		$config['cur_tag_open'] = '<li class="active"><span><b>';
+       			$config['cur_tag_close'] = '</b></span></li>';
+				$config['next_link'] = 'Next';
+				$config['prev_link'] = 'Previous';
+
+				$this->pagination->initialize($config);
+				// if($this->uri->segment(3)){
+				// 	$page = ($this->uri->segment(3)) ;
+				// }else{
+				// 	$page = 1;
+				// }
+				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        		$offset = $page == 0 ? 0 : ($page - 1) * $config["per_page"];
+				$data['list'] = $this->M_Admin->getlink($config["per_page"], $offset);
+				
+				
+				$str_links = $this->pagination->create_links();
+				$data["links"] = explode('&nbsp;',$str_links );
+				$data['page'] = $page==0? 1:$page;
+				// View data according to array.
+				$this->load->view('navigation');
+				$this->load->view("video", $data);
+				
+			} else {
+				$this->load->view('v_loginadmin');
+			}
 	    }
 
 	    

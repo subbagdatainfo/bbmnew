@@ -126,8 +126,8 @@
 				return $key["EXISTS (SELECT NISN from video where NISN = '$nisn' )"];
 			}
 		}
-		public function getlink(){
-			$query = $this->db->query("SELECT  siswa.NISN, siswa.NAMA, video.path_video , video.upload_video FROM siswa JOIN video on siswa.NISN=video.nisn");
+		public function getlink($limit, $id){
+			$query = $this->db->query("SELECT  siswa.NISN, siswa.NAMA, video.path_video , video.upload_video FROM siswa JOIN video on siswa.NISN=video.nisn limit $id,$limit ");
 			return $query;
 		}
 
