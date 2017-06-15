@@ -286,6 +286,39 @@
 	        exit;		  		  
 		}
 
+		public function downloadmaestro($nisn)
+	    {
+	    	$name = $this->M_Admin->getdirdownload($nisn);
+	    	foreach ($name->result_array() as $key ) {
+	    		$dirname='data/'.$key['NAMA'];
+	    		$name=$key['NAMA'];
+	    	}
+	        // $dirmain="upload/data/" . $registration_no ;			
+	        // $dirname=$dirmain . "/lampiran";
+	        // $dirthumb=$dirmain . "/thumbnail" ;	
+	    	
+	    	$this->zip->read_dir($dirname, FALSE);
+	    	//$this->zip->clear_data();
+	    	$archieve=$this->zip->archive('zip/'.$name.'.zip');
+	    	$this->zip->clear_data();
+	    	
+
+	        $file_path=realpath($dirmain);
+	        $file_zip=  $name . ".zip";
+
+	        $myfile =  "zip/" .$file_zip;
+	        ob_end_clean();
+	        // $this->zip->download($file_zip);           
+	        header("Content-Type: application/zip");
+	        header("Content-Disposition: attachment; filename=$file_zip");
+	        header("Content-Length: " . filesize($myfile));
+
+	        readfile($myfile);
+	        ob_end_clean();
+	        // $this->zip->downlo
+	        exit;		  		  
+		}
+
 		public function download_zip_all()
 	    {
 	        $namafile = date('Ymd').'_lampiran_semua_peserta.zip';
@@ -298,16 +331,12 @@
 
 	    public function video(){
 
-	    	// $video['list'] = $this->M_Admin->getlink();
-	    	// $video['count'] = $this->M_Admin->getcountvideo();
-	    	// $this->load->view('navigation');
-	    	// $this->load->view('video', $video);
-
+	    	
 	    	if ($this->session->userdata('logged')['logged'] ) {
 				ob_end_clean();
 				$data['count']=$this->M_Admin->getcountvideo();
 				$config = array();
-				$config["base_url"] = base_url() . "C_Admin/video";
+				$config["base_url"] = base_url() ."C_Admin/video";
 				$total_row = $data['count'];
 				$config["total_rows"] = $total_row;
 				$config["per_page"] = 20;

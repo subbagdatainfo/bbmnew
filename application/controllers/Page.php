@@ -19,7 +19,7 @@ class Page extends CI_Controller {
 
 	public function pendaftaran(){
 		$this->load->view('template/header');
-		$this->load->view('pendaftaran2');
+		$this->load->view('pendaftaran3');
 		$this->load->view('template/footer');
 	}
 
