@@ -1,31 +1,12 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Hasil Pencarian</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $count;?></div>
-                                    <div>Jumlah Link video</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
+            
             <!-- /.row -->
             <div class="row">
                 <?php if($this->session->flashdata('status')=="success"){ ?>
@@ -61,7 +42,7 @@
                                 
                                 <!-- <th>Action</th> -->
                             </tr>
-                            <?php $nom=($page-1) * 20;foreach ($list->result_array() as $row) { $nom++
+                            <?php $nom=0;foreach ($list->result_array() as $row) { $nom++
                                 ?><tr>
                                     <td><?php echo $nom; ?></td>
                                     <td><?php echo $row['NISN'];?></td>
@@ -74,11 +55,7 @@
                                 </tr><?php
                             }?>
                             </table>
-                            <div class="pagination pagination-sm">
-                                <?php foreach ($links as $link) {
-                                echo "<li class >". $link."</li>";
-                                } ?>
-                            </div>  
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>

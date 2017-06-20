@@ -147,5 +147,9 @@
 			return NULL;
 		}
 
+		public function searchvideo($nama){
+			$query = $this->db->query("SELECT  siswa.NISN, siswa.NAMA, video.path_video , video.upload_video FROM siswa JOIN video on siswa.NISN=video.nisn and siswa.NAMA like '%$nama%' ");
+			return $query;
+		}
 
 	}

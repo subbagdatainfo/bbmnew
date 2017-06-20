@@ -419,6 +419,18 @@
 			}
 	    }
 
+	    public function searchvideo(){
+	    	$nama=$this->input->post('nama');
+	    	$data['list'] = $this->M_Admin->searchvideo($nama);
+	    	if ($data['list']->num_rows()>0) {
+	    		$this->load->view('navigation');
+				$this->load->view("searchvideo", $data);
+	    	} else {
+	    		$message1=$this->session->set_flashdata('message','Nama Tidak Ditemukan');
+				$message2=$this->session->set_flashdata('status', 'danger');
+				redirect(base_url().'C_Admin/video','refresh');
+	    	}
+	    }
 	    
 
 	}
