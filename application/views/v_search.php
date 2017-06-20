@@ -10,7 +10,12 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    
+                    <div>
+                        <form  action ="<?=site_url('C_Admin/searchsiswa'); ?>" method="post">
+                            <input type="search" class='autocomplete nama' id="autocomplete1" name="nama"/>
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Data Pendaftar

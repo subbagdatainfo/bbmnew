@@ -73,7 +73,9 @@
 				$this->load->view('navigation');
 				$this->load->view("v_search", $data);
 			} else {
-				# code...
+				$message1=$this->session->set_flashdata('message','Nama Tidak Ditemukan');
+				$message2=$this->session->set_flashdata('status', 'danger');
+				redirect(base_url().'C_Admin/admin','refresh');
 			}
 		}
 

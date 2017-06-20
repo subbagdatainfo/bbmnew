@@ -144,7 +144,7 @@
 
 			return $data;
 			}
-			return false;
+			return NULL;
 		}
 
 

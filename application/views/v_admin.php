@@ -5,6 +5,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+
             <!-- /.row -->
             <div class="row">
                 
@@ -25,6 +26,13 @@
                 </div>
                 
             </div>
+            <div class="row">
+                <?php if($this->session->flashdata('status')=="success"){ ?>
+                <h3><?php echo $this->session->flashdata('message'); ?></h3>
+                <?php }elseif ($this->session->flashdata('status')=='danger') {?>
+                    <h3><?php echo $this->session->flashdata('message'); ?></h3>
+                <?php } ?>
+            </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -37,17 +45,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Daftar Pendaftar
-                            <div class="pull-right">
-                                <form name="search" id="searchform" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
-                                    <!-- <div class="form-group input-group">
-                                            
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                                </form>
-                            </div>
+                            
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body table-responsive">
