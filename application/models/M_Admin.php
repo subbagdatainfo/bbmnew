@@ -135,5 +135,17 @@
 			return $this->db->count_all("video");
 		}
 
+		public function searchpeserta($nama){
+			$query = $this->db->query("SELECT * FROM siswa WHERE NAMA like '%$nama%' ");
+			if ($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+			$data[] = $row;
+			}
+
+			return $data;
+			}
+			return false;
+		}
+
 
 	}

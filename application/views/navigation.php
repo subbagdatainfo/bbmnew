@@ -11,7 +11,28 @@
 
     <title>BBM</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- autocomplete JS -->
+    <script type='text/javascript' src='<?php echo base_url();?>assets/js/jquery-1.8.2.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url();?>assets/js/jquery.autocomplete.js'></script>
+
+    <!-- Memanggil file .css untuk style saat data dicari dalam filed -->
+    <link href='<?php echo base_url();?>assets/js/jquery.autocomplete.css' rel='stylesheet' />
+
+    <script type='text/javascript'>
+        var site = "<?php echo site_url();?>";
+        $(function(){
+            $('.autocomplete').autocomplete({
+                // serviceUrl berisi URL ke controller/fungsi yang menangani request kita
+                serviceUrl: site+'/autocomplete/search',
+                // fungsi ini akan dijalankan ketika user memilih salah satu hasil request
+                onSelect: function (suggestion) {
+                    $('#v_nim').val(''+suggestion.NISN); // membuat id 'v_nim' untuk ditampilkan
+                    $('#v_jurusan').val(''+suggestion.MAESTRO); // membuat id 'v_jurusan' untuk ditampilkan
+                }
+            });
+        });
+    </script>
+
     
 <!-- Bootstrap Core CSS -->
     <link href="<?php echo HTTP_VENDOR_PATH;?>bootstrap/css/bootstrap.min.css" rel="stylesheet">

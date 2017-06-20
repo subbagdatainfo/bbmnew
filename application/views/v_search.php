@@ -1,53 +1,20 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Hasil Pencarian</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $count;?></div>
-                                    <div>Jumlah Pendaftar</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div>
-                        <form  action ="<?=site_url('C_Admin/searchsiswa'); ?>" method="post">
-                            <input type="search" class='autocomplete nama' id="autocomplete1" name="nama"/>
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
+                    
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Daftar Pendaftar
-                            <div class="pull-right">
-                                <form name="search" id="searchform" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
-                                    <!-- <div class="form-group input-group">
-                                            
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                                </form>
-                            </div>
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Data Pendaftar
+                            
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body table-responsive">
@@ -70,8 +37,8 @@
                                 <th>Download</th>
                                 <!-- <th>Action</th> -->
                             </tr>
-                            <?php $nom=($page-1) * 25;foreach ($peserta as $row) {
-                                $nom++;
+                            <?php $nom=0;foreach ($peserta as $row) {
+                               $nom++;
                                 $nisn = $row->NISN;
                                 ?><tr>
                                     <td><?php echo $nom;?></td>
@@ -164,11 +131,7 @@
                                 </tr><?php
                             }?>
                             </table>
-                            <div class="pagination pagination-sm">
-                                <?php foreach ($links as $link) {
-                                echo "<li class >". $link."</li>";
-                                } ?>
-                            </div>
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -204,33 +167,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $('.image-floating').click(function(e){
-        $('#myModal img').attr('src', $(this).attr('data-img-url'));
-    });
 
-    $('.changestatus').click(function(e){
-        e.preventDefault();
-        var caper_id = $(this).data('id');
-        $.ajax({
-            type: 'POST',
-            url: '/calonpeserta/status',
-            data: {caper_id: caper_id},
-            success: function(response) {
-                // alert(response);
-                if(response == 'success') {
-                    location.reload();
-                } else {
-                    alert('Ada masalah di server');
-                }
-            }
-        });
-    });
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
 
     <!-- Bootstrap Core JavaScript -->
     

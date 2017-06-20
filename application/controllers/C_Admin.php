@@ -56,6 +56,50 @@
 			}
 		}
 
+		public function searchsiswa(){
+			$nama= $this->input->post('nama');
+			$data['peserta']= $this->M_Admin->searchpeserta($nama);
+			if ($data['peserta'] !== NULL) {
+
+				foreach ($data['peserta'] as $key ) {
+					$data['profpict'][$key->NISN]= $this->M_Admin->getstatusprofpict($key->NISN);
+					$data['sks'][$key->NISN]= $this->M_Admin->getstatussks($key->NISN);
+					$data['spot'][$key->NISN]= $this->M_Admin->getstatusspot($key->NISN);
+					$data['sr'][$key->NISN]= $this->M_Admin->getstatussr($key->NISN);
+					$data['fk'][$key->NISN]= $this->M_Admin->getstatusfk($key->NISN);
+					$data['piagam'][$key->NISN]= $this->M_Admin->getstatuspiagam($key->NISN);
+					$data['video'][$key->NISN]= $this->M_Admin->getstatusvideo($key->NISN);
+				}
+				$this->load->view('navigation');
+				$this->load->view("v_search", $data);
+			} else {
+				# code...
+			}
+		}
+
+		public function search()
+		{
+			// tangkap variabel keyword dari URL
+			$keyword = $this->uri->segment(3);
+
+			// cari di database
+			$data = $this->db->from('siswa')->like('NAMA',$keyword)->get();	
+
+			// format keluaran di dalam array
+			foreach($data->result() as $row)
+			{
+				$arr['query'] = $keyword;
+				$arr['suggestions'][] = array(
+					'value'	=>$row->NAMA,
+					'NISN'	=>$row->NISN,
+					'MAESTRO'	=>$row->MAESTRO
+
+				);
+			}
+			// minimal PHP 5.2
+			echo json_encode($arr);
+		}
+
 		public function info(){
 			echo phpinfo();
 		}

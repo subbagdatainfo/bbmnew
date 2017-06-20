@@ -311,7 +311,7 @@
                     <p>Silakan upload surat rekomendasi dari kepala sekolah Anda. file upload dapat berupa file PDF, image (.jpg) atau Ms.Word (.doc, .docx)</p>
                   </div>
                   <div class="row-md-4">
-                    <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Peserta/addsurat'); ?>" method="post">
+                    <form name="update" id="updateform" enctype="multipart/form-data" action ="<?=site_url('C_Admin/search'); ?>" method="post">
                         <div class="form-group">
                             <label>Pilih File</label>
                             <input type="file" name="userfile">
