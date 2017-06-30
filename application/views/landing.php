@@ -56,9 +56,7 @@
                     <hr>
                     <img class="img-responsive img-border img-left" src="<?php echo HTTP_IMAGES_PATH;?>maestro.png" alt="" height="140" width="150">
                     <hr class="visible-xs">
-                    <p>Belajar Bersama Maestro (BBM) adalah salah satu program kegiatan Direktorat Kesenian, Direktorat Jenderal Kebudayaan, Kementerian Pendidikan dan Kebudayaan, yang sudah dimulai pada tahun 2015. Kegiatan Belajar Bersama Maestro (BBM) tahun 2017 merupakan kegiatan yang ketiga (3), dengan melibatkan sepuluh (15) Maestro kesenian dari beberapa provinsi di Indonesia. Kegiatan tersebut memberikan kesempatan kepada peserta didik/siswi kelas X dan XI SMA/SMK baik negeri maupun swasta dari 34 (tiga puluh empat) provinsi di Indonesia, dengan para peserta didik yang akan diseleksi hingga mencapai 300 orang. Bagi  calon peserta yang lolos dalam seleksi akan mendapatkan kesempatan  belajar bersama  Maestro kesenian sesuai dengan kompetensi yang dimiliki oleh peserta didik</p>
-                    <!-- <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p> -->
+                    <p>Pengumuman Peserta yang lolos dalam seleksi kegiatan BBM (belajar Bersama Maestro) dapat diunduh <a href="assets/Pengumuman BBM 2017.pdf">disini</a> </p>
                 </div>
             </div>
         </div>

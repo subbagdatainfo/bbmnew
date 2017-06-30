@@ -32,48 +32,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>
-                                    var kapuashulu = [{name:'Seni Tari', value:'senitari'}, {name:'Seni Musik', value:'senimusik'}, {name:'Seni Rupa (Ukir)', value:'senirupaukir'}, {name:'Seni Media', value:'Seni Media', value:'senimedia'}];
-
-                                    var natuna = [{name:'Seni Tari', value:'senitari'}, {name:'Seni Musik', value:'senimusik'}, {name:'Seni Teater', value:'seniteater'}, {name:'Seni Rupa', value:'senirupa'}, {name:'Seni Media', value:'senimedia'}];
-
-                                    var belu = [{name:'Seni Rupa (Ukir)', value:'senirupaukir'}, {name:'Seni Tari', value:'senitari'}, {name:'Seni Teater', value:'seniteater'}, {name:'Seni Musik (Vokal)', value:'senimusikvokal'}, {name:'Seni Media', value:'senimedia'}]
-                                    $(document).ready( function() {
-                                      $("input[name='chk']").on('change',function() {
-
-                                          if($(this).is(':checked') && $(this).val() == 'belu')
-                                          {
-                                            $('#jenis_seni').empty()
-                                            $.each(belu, function(index, value) {
-                                             $('#jenis_seni').append('<option value="'+value.value+'">'+value.name+'</option>');
-                                            });                  
-                                          }
-                                          else if($(this).is(':checked') && $(this).val() == 'natuna')
-                                          {
-                                            $('#jenis_seni').empty()
-                                            $.each(natuna, function(index, value) {
-                                             $('#jenis_seni').append('<option value="'+value.value+'">'+value.name+'</option>');
-                                            }); 
-                                          }
-                                          else if($(this).is(':checked') && $(this).val() == 'kapuashulu')
-                                          {
-                                            $('#jenis_seni').empty()
-                                            $.each(kapuashulu, function(index, value) {
-                                             $('#jenis_seni').append('<option value="'+value.value+'" >'+value.name+'</option>');
-                                            }); 
-                                          }
-                                          else 
-                                          {
-
-                                          }
-                                          {
-
-                                          }
-
-                                      });
-                                    });  
-                                </script>
+    
 
 </head>
 
